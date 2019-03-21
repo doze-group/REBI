@@ -7,6 +7,8 @@ const path = require('path');
 //recordar- ant debe estár en las variables de entorno, lo mismo que los JDK y JRE
 // Ubicar el path de tomcat
 
+//cambio orlando testeo
+
 let splited = __dirname.split(path.sep);
 
 let pathlocal = '';
