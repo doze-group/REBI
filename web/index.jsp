@@ -13,7 +13,7 @@ and open the template in the editor.
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <% String title = "REBI-TC";%>
     <title><%=title%></title>
-    <link rel="stylesheet" href="libraries/bootstrap4.3.1.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
   </head>
   <body>
     <div id="root"></div>
