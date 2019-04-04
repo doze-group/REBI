@@ -6,7 +6,7 @@ function App() {
   return (
     <HashRouter>
       <div>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/Home" component={Home} />
         {/* <Route path="/createproduct" component={ProductCreate} /> */}
       </div>
     </HashRouter>
