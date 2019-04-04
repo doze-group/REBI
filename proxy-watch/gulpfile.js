@@ -25,11 +25,12 @@ const basic = {
 };
 
 const config = {
-  project_name_folder: basic.project_name_folder,
+  project_name_folder: basic.project_name_folder,  
   project_path: basic.project_path,
   project_path_build_web: `${basic.project_path}\\build\\web`,
-  tomcat_path: 'C:\\xampp\\tomcat',
-  tomcat_proxy: `http://localhost:8080/${basic.project_name_folder}`,
+  tomcat_path: 'C:\\apache-tomcat-8.0.35',  
+  //tomcat_proxy: `http://localhost:8084/${basic.project_name_folder}`,
+  tomcat_proxy: `http://localhost:8084/${basic.project_name_folder}`,
   port_watch: 3500,
   watch_: false,
 };
