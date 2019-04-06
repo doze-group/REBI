@@ -1,6 +1,3 @@
-html {
-    height: 100%;
-}
 .Todo { 
     position:absolute; 
     top:0; 
@@ -8,7 +5,4 @@ html {
     right:0; 
     left:0;
     height: 100%;
-}
-.Todo .columns {
-    margin-top: 0px;
 }
