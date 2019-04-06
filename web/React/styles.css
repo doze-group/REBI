@@ -1,8 +1,31 @@
-.Todo { 
-    position:absolute; 
-    top:0; 
-    bottom:0; 
-    right:0; 
-    left:0;
+body, html {
+    margin: 0px;
     height: 100%;
+}
+
+.card {
+    background: #00B4DB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
+}
+
+.card-image {
+    padding: 15px;
+}
+
+.is-horizontal-center {
+    justify-content: center;
+}
+
+.full {
+    height: 100%;
+}
+
+.is-vertical-center {
+    display: flex;
+    align-items: center;
 }

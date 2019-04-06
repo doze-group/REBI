@@ -3,8 +3,8 @@ const { Redirect } = ReactRouterDOM;
 
 function NavBar() {
     return (
-        <nav class="level is-fixed-top is-white">
-            <div class="level-left">
+        <nav class="navbar is-fixed-top level is-fixed-top is-white">
+            <div class="level-left Logo">
                 <div class="level-item">
                     <img src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png" alt="Logo" />
                 </div>
@@ -42,6 +42,24 @@ function NavBar() {
                                     </span>
                                     <p>
                                         Tus Archivos
+                                    </p>
+                                </a>
+                                <hr class="dropdown-divider" />
+                                <a class="dropdown-item has-text-centered is-paddingless">
+                                    <span class="icon is-medium has-text-info">
+                                        <i class="fas fa-home fa-2x"></i>
+                                    </span>
+                                    <p>
+                                        Inicio
+                                    </p>
+                                </a>
+                                <hr class="dropdown-divider" />
+                                <a class="dropdown-item has-text-centered is-paddingless">
+                                    <span class="icon is-medium has-text-info">
+                                        <i class="fas fa-cogs fa-2x"></i>
+                                    </span>
+                                    <p>
+                                        Configuración
                                     </p>
                                 </a>
                                 <hr class="dropdown-divider" />
