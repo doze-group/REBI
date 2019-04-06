@@ -1,6 +1,14 @@
-body {
-    font-size: 13px !important;
-    line-height: 1.4;
-    color: #4a4a4a;
-    background-color: #fff;
+html {
+    height: 100%;
+}
+.Todo { 
+    position:absolute; 
+    top:0; 
+    bottom:0; 
+    right:0; 
+    left:0;
+    height: 100%;
+}
+.Todo .columns {
+    margin-top: 0px;
 }
