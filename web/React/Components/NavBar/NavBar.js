@@ -3,7 +3,7 @@ const { Redirect } = ReactRouterDOM;
 
 function NavBar() {
     return (
-        <nav class="navbar is-fixed-top level is-fixed-top is-white">
+        <nav class="navbar is-fixed-top level is-fixed-top has-background-light">
             <div class="level-left Logo">
                 <div class="level-item">
                     <img src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png" alt="Logo" />
