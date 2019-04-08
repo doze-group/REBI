@@ -9,7 +9,7 @@ function App() {
       <HashRouter>
         <div class="full">
           <Route exact path="/Home" component={Home} />
-          <Route path="*" component={Home} />
+          <Route exact path="/User" component={HomeUser} />
           {/* <Route path="/createproduct" component={ProductCreate} /> */}
         </div>
       </HashRouter>

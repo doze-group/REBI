@@ -11,7 +11,7 @@ function NavBar() {
             </div>
             <div class="level-right">
                 <div class="level-item">
-                    <div class="dropdown is-hoverable is-left is-hidden-mobile">
+                    <div class="dropdown is-hoverable is-left is-hidden-mobile NavDrop">
                         <div class="dropdown-trigger">
                             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
                                 <span class="image is-24x24">

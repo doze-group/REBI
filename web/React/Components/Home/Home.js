@@ -2,94 +2,79 @@ const { Component } = React;
 const { Redirect } = ReactRouterDOM;
 
 function Home() {
-  return (
-    <div class="container is-fluid full">
-      <div class="columns full is-flex is-horizontal-center is-vertical-center is-multiline">
-        <div class="column is-6">
-          <a>
-            <div class="card has-text-centered equal-height">
-              <div class="card-image is-flex is-horizontal-center">
-                <figure class="image is-128x128">
-                  <img
-                    src="https://image.flaticon.com/icons/svg/701/701997.svg"
-                    alt="Placeholder image"
-                  />
-                </figure>
-              </div>
-              <div class="card-content is-flex is-horizontal-center">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4">Perfil</p>
-                  </div>
+    var Cate = ['Ciencias', 'Tecnología', 'Economía']
+    return (
+        <div class="container full is-fluid">
+            <div class="columns full">
+                <div class="column full is-3">
+                    <nav class="panel">
+                        <p class="panel-heading">Categorias</p>
+                        <div class="panel-block">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Buscar" />
+                                </div>
+                                <div class="control">
+                                    <a class="button is-info">
+                                        Buscar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {
+                            Cate.map((item, i) => {
+                                return (
+                                    <a class="panel-block is-active">
+                                        <span class="panel-icon">
+                                            <i class="fas fa-book" aria-hidden="true"></i>
+                                        </span>
+                                        {item}
+                                    </a>
+                                )
+                            })
+                        }
+                    </nav>
                 </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="column is-6">
-          <a>
-            <div class="card has-text-centered equal-height">
-              <div class="card-image is-flex is-horizontal-center">
-                <figure class="image is-128x128">
-                  <img
-                    src="https://image.flaticon.com/icons/svg/272/272344.svg"
-                    alt="Placeholder image"
-                  />
-                </figure>
-              </div>
-              <div class="card-content is-flex is-horizontal-center">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4">Tus Archivos</p>
-                  </div>
+                <div class="column is-9 is-multiline">
+                    <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
+                    <br />
+                    {
+                        Cate.map((item, i) => {
+                            return (
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-64x64">
+                                            <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <strong>Este Articulo es de ciencia</strong> <small>@Fernando Araujo</small>
+                                                <br />
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                            </p>
+                                        </div>
+                                        <nav class="level is-mobile">
+                                            <div class="level-left">
+                                                <a class="level-item">
+                                                    <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                                                </a>
+                                                <a class="level-item">
+                                                    <span class="icon is-small"><i class="fas fa-download"></i></span>
+                                                </a>
+                                                <a class="level-item">
+                                                    <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                                                </a>
+                                            </div>
+                                        </nav>
+                                    </div>
+                                </article>
+                            )
+                        })
+                    }
                 </div>
-              </div>
             </div>
-          </a>
         </div>
-        <div class="column is-6">
-          <a>
-            <div class="card has-text-centered equal-height">
-              <div class="card-image is-flex is-horizontal-center">
-                <figure class="image is-128x128">
-                  <img
-                    src="https://image.flaticon.com/icons/svg/1201/1201498.svg"
-                    alt="Placeholder image"
-                  />
-                </figure>
-              </div>
-              <div class="card-content is-flex is-horizontal-center">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4">Buscar Archivos</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="column is-6">
-          <a>
-            <div class="card has-text-centered equal-height">
-              <div class="card-image is-flex is-horizontal-center">
-                <figure class="image is-128x128">
-                  <img
-                    src="https://image.flaticon.com/icons/svg/1542/1542126.svg"
-                    alt="Placeholder image"
-                  />
-                </figure>
-              </div>
-              <div class="card-content is-flex is-horizontal-center">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4">Configuraciones</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
