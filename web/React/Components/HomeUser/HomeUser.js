@@ -3,7 +3,7 @@ const { Redirect } = ReactRouterDOM;
 
 function HomeUser() {
   return (
-    <div class="container is-fluid full Pad">
+    <div class="container is-fullhd full Pad">
       <div class="columns full is-flex is-horizontal-center is-vertical-center is-multiline">
         <div class="column is-6">
           <a>

@@ -2,12 +2,12 @@ const { Component } = React;
 const { Redirect } = ReactRouterDOM;
 
 function Home() {
-    var Cate = ['Ciencias', 'Tecnología', 'Economía']
+    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
     return (
-        <div class="container full is-fluid">
+        <div class="container full is-fullhd">
             <div class="columns full">
                 <div class="column full is-3">
-                    <nav class="panel">
+                    <nav class="panel Overflow">
                         <p class="panel-heading">Categorias</p>
                         <div class="panel-block">
                             <div class="field has-addons">
@@ -35,7 +35,7 @@ function Home() {
                         }
                     </nav>
                 </div>
-                <div class="column is-9 is-multiline">
+                <div class="column is-9 is-multiline Overflow">
                     <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
                     <br />
                     {
