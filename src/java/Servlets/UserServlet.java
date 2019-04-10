@@ -32,8 +32,10 @@ public class UserServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
 
         Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
-        String productsListJson = prettyGson.toJson(new Object[]{"Ok", 200});
+        String productsListJson = prettyGson.toJson(new Object[]{"Ok1", 200});
         out.print(productsListJson);
+
+
 
     }
 
