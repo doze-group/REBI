@@ -25,7 +25,7 @@ const basic = {
 };
 
 const config = {
-  project_name_folder: basic.project_name_folder,
+  project_name_folder: basic.project_name_folder,  
   project_path: basic.project_path,
   project_path_build_web: `${basic.project_path}\\build\\web`,
   tomcat_path: 'E:\\Programas\\TomCat',
