@@ -16,10 +16,14 @@ and open the template in the editor.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <!-- Styles -->
-  <Link rel="stylesheet" href="./React/styles.css"></Link>
-  <Link rel="stylesheet" href="./React/Components/Home/Home.css"></Link>
-  <Link rel="stylesheet" href="./React/Components/HomeUser/HomeUser.css"></Link>
-  <Link rel="stylesheet" href="./React/Components/NavBar/NavBar.css"></Link>
+  <Link rel="stylesheet" href="./React/styles.css">
+  </Link>
+  <Link rel="stylesheet" href="./React/Components/Home/Home.css">
+  </Link>
+  <Link rel="stylesheet" href="./React/Components/HomeUser/HomeUser.css">
+  </Link>
+  <Link rel="stylesheet" href="./React/Components/NavBar/NavBar.css">
+  </Link>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <script src="libraries/react16.8.1.min.js"></script>
   <script src="libraries/react16.8.1-dom.min.js"></script>
@@ -29,9 +33,11 @@ and open the template in the editor.
   <script src="React/Components/Home/Home.js" type="text/babel"></script>
   <script src="React/Components/HomeUser/HomeUser.js" type="text/babel"></script>
   <script src="React/Components/NavBar/NavBar.js" type="text/babel"></script>
-  <!-- <script src="React/Components/ProductCreate/ProductCreate.js" type="text/babel"></script> -->
+  <script src="React/Components/Login/Login.js" type="text/babel"></script>
+
   <script src="React/App.js" type="text/babel"></script>
   <script src="React/Index.js" type="text/babel"></script>
+  <!-- <script src="React/Components/ProductCreate/ProductCreate.js" type="text/babel"></script> -->
 </head>
 
 <body>

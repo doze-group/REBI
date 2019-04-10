@@ -1,17 +1,18 @@
 const { Component } = React;
 
-const { HashRouter, Route, Link } = ReactRouterDOM;
+const { Switch, Route, Link, HashRouter } = ReactRouterDOM;
 
 function App() {
   return (
     <div class="full router">
       <NavBar />
       <HashRouter>
-        <div class="full">
+        <Switch>
+          <Route exact path="/Login" component={Login} />
           <Route exact path="/Home" component={Home} />
           <Route exact path="/User" component={HomeUser} />
-          {/* <Route path="/createproduct" component={ProductCreate} /> */}
-        </div>
+          <Route exact path="**" render={() => (<Redirect to="Home" />)} />
+        </Switch>
       </HashRouter>
     </div>
   );
