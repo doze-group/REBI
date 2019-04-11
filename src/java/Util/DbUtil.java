@@ -19,7 +19,7 @@ public class DbUtil {
                 //        + "?autoReconnect=true&useSSL=false&useJDBCCompliantTimezoneShift=true&"
                 //        + "useLegacyDatetimeCode=false&serverTimezone=UTC";
                 String user = "root";
-                String password = null;
+                String password = "";
 
                 System.out.print(user);
                 
