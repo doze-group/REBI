@@ -1,7 +1,7 @@
 
-create database if not exists jsp_react_project;
+create database if not exists rebi_tc;
 
-use jsp_react_project;
+use rebi_tc;
 
 /*
  private int Id;
@@ -10,6 +10,21 @@ use jsp_react_project;
     private double Price;
 
 */
+
+
+CREATE TABLE IF NOT EXISTS usuarios
+(
+id int auto_increment PRIMARY KEY,
+nombre VARCHAR(100) not null, 
+password VARCHAR(30) not null,
+email VARCHAR(30) not null,
+id_ciudadania VARCHAR(30) not null,
+id_estudiantil VARCHAR(200) not null 
+);
+                 
+select * from parcial.usuarios;
+
+
 
 create 
 	table if not exists jsp_react_project.products (
