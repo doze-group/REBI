@@ -1,18 +1,24 @@
 var Usuarios = [];
 
-/*for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 100; i++) {
     Usuarios.push({
-        User: 'Alexito',
-        Password: 'BienChikyLucky',
-        Nombre: 'Alex Osorio',
-        Id: '000xxx000xxx00xx',
-        Email: 'Email@Email.com',
-        Image: 'http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico',
-        Rol: true
+        "id_db": 1,
+        "nombre": "Fernando Araujo",
+        "email": "12345",
+        "password": "fercho@clandestine.com",
+        "id_institucional": "b123",
+        "id_ciudadania": "a123",
+        "role": "admin"
     })
-} */
+}
 
 function getUsers() {
-    return http_get('api/user?type=getall');
+    console.log(Usuarios);
+    return Usuarios;
+  //  return http_get('api/user?type=getall');
+}
+
+function AddUser(user) {
+    return http_post('api/user', user);
 }
 
