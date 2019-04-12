@@ -5,40 +5,43 @@ function AdminUser(props) {
     const [Load, setLoad] = useState(false);
     const [Update, setUpdate] = useState(false);
     const [Init, setInit] = useState(true)
-    const [Users, setUsers] = useState(getUsers());
+    const [Users, setUsers] = useState([]);
+    const initUser = {
+        id_db: null,
+        password: '',
+        nombre: '',
+        id_institucional: '',
+        email: '',
+        image: '',
+        role: 'user',
+        id_ciudadania: ''
+    };
 
     useEffect(() => {
         if (Update || Init) {
-            setUsers(getUsers());
-            /*getUsers().then(Data => {
+            getUsers().then(Data => {
                 console.log(Data);
                 setUsers(Data);
                 setLoad(true);
-            }).catch(err => { setLoad(true); }); */
-            setLoad(true);
+            }).catch(err => { setLoad(true); });
             setUpdate(false);
         }
         setInit(false);
     })
 
-    function Add() {
+    function Form(TextAction, User, Action) {
         const MySwal = sweetalert2ReactContent(Swal)
-        const initUser = {
-            id_db: null,
-            password: '',
-            nombre: '',
-            id_institucional: '',
-            email: '',
-            image: '',
-            role: 'user',
-            id_ciudadania: ''
-        }
         MySwal.fire({
-            title: "Agregar Usuario",
-            html: <FormUser TextAction="Agregar" User={initUser} Action={AddUser} />,
+            title: TextAction,
+            html: <FormUser TextAction={TextAction} User={User} Action={Action} />,
             showCloseButton: true,
             showConfirmButton: false
         });
+    }
+
+
+    function AddUser() {
+        console.log("Hola")
     }
 
     var Items = <tr>
@@ -67,7 +70,7 @@ function AdminUser(props) {
                         </div>
                     </div>
                 </div>
-                <div class="row Overflow Table Scroll">
+                <div class="row Overflow Table">
                     <table class="table is-fullwidth">
                         <thead>
                             <tr><th colspan="7" class="has-text-centered">Usuarios</th></tr>
@@ -98,7 +101,7 @@ function AdminUser(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Add.bind(this)}><i class="fa fa-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUser)}><i class="fa fa-plus my-float"></i></a>
             </div>
         );
     } else {
@@ -115,9 +118,4 @@ function AdminUser(props) {
             </div>
         );
     }
-}
-
-
-function AddUser() {
-    console.log("Hola")
 }
