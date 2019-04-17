@@ -13,7 +13,7 @@ function AdminUser(props) {
         id_institucional: '',
         email: '',
         image: '',
-        role: 'user',
+        role: 'admin',
         id_ciudadania: ''
     };
 
@@ -40,8 +40,16 @@ function AdminUser(props) {
     }
 
 
-    function AddUser() {
-        console.log("Hola")
+    function AddUserForm(User) {
+        setLoad(false);
+        AddUser(User).then(user => {
+            Swal.fire('Usuario Creado', '', 'success');
+            setUpdate(true);
+            console.log(user);
+        }) .catch(err => {
+            Swal.fire('err', err.toString(), 'error');
+        });
+        setLoad(true);
     }
 
     var Items = <tr>
@@ -101,7 +109,7 @@ function AdminUser(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUser)}><i class="fa fa-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm)}><i class="fa fa-plus my-float"></i></a>
             </div>
         );
     } else {

@@ -4,14 +4,14 @@ function FormUser(props) {
 
     function Submit() {
         var User = {
-            "nombre": document.getElementById("nombre"),
-            "email": "12345",
-            "password": "fercho@clandestine.com",
-            "id_institucional": "b123",
-            "id_ciudadania": "a123",
-            "role": "admin"
+            "nombre": document.getElementById("nombre").value,
+            "email": document.getElementById("email").value,
+            "password": document.getElementById("password").value,
+            "id_institucional": document.getElementById("id_institucional").value,
+            "id_ciudadania": document.getElementById("id_ciudadania").value,
+            "role": document.getElementById("role").value
         };
-        props.Action();
+        props.Action(User);
         return false;
     }
 
@@ -61,7 +61,7 @@ function FormUser(props) {
             <div class="field">
                 <p class="control has-icons-left">
                     <span class="select is-fullwidth">
-                        <select required id="Role">
+                        <select required id="role" defaultValue={props.User.role}>
                             <option selected={props.User.role == "user"} value="user">Usuario</option>
                             <option selected={props.User.role == "admin"} value="admin">Administrador</option>
                         </select>
