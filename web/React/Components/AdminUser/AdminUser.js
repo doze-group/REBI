@@ -20,7 +20,6 @@ function AdminUser(props) {
     useEffect(() => {
         if (Update || Init) {
             getUsers().then(Data => {
-                console.log(Data);
                 setUsers(Data);
                 setLoad(true);
             }).catch(err => { setLoad(true); });
@@ -29,27 +28,55 @@ function AdminUser(props) {
         setInit(false);
     })
 
-    function Form(TextAction, User, Action) {
+    function Form(TextAction, User, Action, Put) {
         const MySwal = sweetalert2ReactContent(Swal)
         MySwal.fire({
             title: TextAction,
-            html: <FormUser TextAction={TextAction} User={User} Action={Action} />,
+            html: <FormUser TextAction={TextAction} User={User} Action={Action} Put={Put} />,
             showCloseButton: true,
             showConfirmButton: false
         });
     }
 
+    function Delete(User) {
+        Swal.fire({
+            title: '¿Esta seguro de eliminar este usuario?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Si, Eliminar'
+        }).then((result) => {
+            if (result.value) {
+                setLoad(false);
+                DeleteUser({ id: User.id_db }).then(user => {
+                    Swal.fire('Usuario Eliminado', '', 'success');
+                    setUpdate(true);
+                }).catch(err => {
+                    Swal.fire('err', err.toString(), 'error');
+                })
+            }
+        })
+    }
 
     function AddUserForm(User) {
         setLoad(false);
         AddUser(User).then(user => {
             Swal.fire('Usuario Creado', '', 'success');
             setUpdate(true);
-            console.log(user);
-        }) .catch(err => {
+        }).catch(err => {
             Swal.fire('err', err.toString(), 'error');
         });
-        setLoad(true);
+    }
+
+    function UpdateUserForm(User) {
+        setLoad(false);
+        UpdateUser(User).then(user => {
+            Swal.fire('Usuario Modificado', '', 'success');
+            setUpdate(true);
+        }).catch(err => {
+            Swal.fire('err', err.toString(), 'error');
+        });
     }
 
     var Items = <tr>
@@ -97,8 +124,8 @@ function AdminUser(props) {
                                             <td class="has-text-centered">{Item.password}</td>
                                             <td class="has-text-centered">
                                                 <div class="buttons is-flex is-horizontal-center">
-                                                    <a class="button is-primary is-outlined">Actualizar</a>
-                                                    <a class="button is-danger is-outlined">Eliminar</a>
+                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>Actualizar</a>
+                                                    <a class="button is-danger is-outlined" onClick={Delete.bind(this, Item)}>Eliminar</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -109,7 +136,7 @@ function AdminUser(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm)}><i class="fa fa-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-plus my-float"></i></a>
             </div>
         );
     } else {

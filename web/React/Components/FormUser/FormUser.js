@@ -11,6 +11,7 @@ function FormUser(props) {
             "id_ciudadania": document.getElementById("id_ciudadania").value,
             "role": document.getElementById("role").value
         };
+        props.Put ? Object.assign(User, { "id_db": props.User.id_db }) : null;
         props.Action(User);
         return false;
     }
@@ -43,7 +44,7 @@ function FormUser(props) {
             </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Id Institucional" required disabled={props.Put} defaultValue={props.User.id_institucional} id="id_institucional" />
+                    <input class="input" type="text" placeholder="Id Institucional" required defaultValue={props.User.id_institucional} id="id_institucional" />
                     <span class="icon is-small is-left">
                         <i class="fas fa-id-badge"></i>
                     </span>
@@ -51,7 +52,7 @@ function FormUser(props) {
             </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
-                    <input class="input" type="text" placeholder="Cedula" required disabled={props.Put} defaultValue={props.User.id_ciudadania} id="id_ciudadania" />
+                    <input class="input" type="text" placeholder="Cedula" required defaultValue={props.User.id_ciudadania} id="id_ciudadania" />
                     <span class="icon is-small is-left">
                         <i class="fas fa-id-card"></i>
                     </span>
@@ -73,7 +74,7 @@ function FormUser(props) {
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button is-success is-fullwidth" >{props.TextAction}</button>
+                    <button class="button is-success is-fullwidth" type="submit">{props.TextAction}</button>
                 </p>
             </div>
         </form>
