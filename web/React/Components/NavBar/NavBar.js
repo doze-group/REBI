@@ -1,9 +1,6 @@
 const { Component } = React;
 
 function NavBar(props) {
-
-    const [Login, setLogin] = useState(localStorage.getItem('User'))
-
     return (
         <nav class="navbar level has-background-light">
             <div class="level-left Logo">
@@ -13,7 +10,7 @@ function NavBar(props) {
             </div>
             <div class="level-right">
                 <div class="level-item NavDrop is-hidden-mobile">
-                    {Login != null ?
+                    {localStorage.getItem('User') != null ?
                         <div>
                             <div class="dropdown is-hoverable is-left">
                                 <div class="dropdown-trigger">
@@ -59,7 +56,7 @@ function SelectBox(props) {
         {
             Title: 'Inicio',
             Icon: 'fa-home',
-            Function: () => { }
+            Function: () => props.history.push('/Home')
         },
         {
             Title: 'Configuración',

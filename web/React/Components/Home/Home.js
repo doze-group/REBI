@@ -3,40 +3,40 @@ const { Component } = React;
 function Home(props) {
     var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
     return (
-        <div class="full">
-            <NavBar props={props}/>
-            <div class="container full is-fullhd">
-                <div class="columns full">
-                    <div class="column full is-3">
-                        <nav class="panel Overflow">
-                            <p class="panel-heading">Categorias</p>
-                            <div class="panel-block">
-                                <div class="field has-addons">
-                                    <div class="control">
-                                        <input class="input" type="text" placeholder="Buscar" />
-                                    </div>
-                                    <div class="control">
-                                        <a class="button is-info">
-                                            Buscar
+        <div class="container full is-fullhd">
+            <NavBar props={props} />
+            <div class="columns">
+                <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
+                    <nav class="panel Overflow">
+                        <p class="panel-heading">Categorias</p>
+                        <div class="panel-block">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Buscar" />
+                                </div>
+                                <div class="control">
+                                    <a class="button is-info">
+                                        Buscar
                                     </a>
-                                    </div>
                                 </div>
                             </div>
-                            {
-                                Cate.map((item, i) => {
-                                    return (
-                                        <a class="panel-block is-active">
-                                            <span class="panel-icon">
-                                                <i class="fas fa-book" aria-hidden="true"></i>
-                                            </span>
-                                            {item}
-                                        </a>
-                                    )
-                                })
-                            }
-                        </nav>
-                    </div>
-                    <div class="column is-9 is-multiline Overflow">
+                        </div>
+                        {
+                            Cate.map((item, i) => {
+                                return (
+                                    <a class="panel-block is-active">
+                                        <span class="panel-icon">
+                                            <i class="fas fa-book" aria-hidden="true"></i>
+                                        </span>
+                                        {item}
+                                    </a>
+                                )
+                            })
+                        }
+                    </nav>
+                </div>
+                <div class="column">
+                    <div class="row Overflow Scroll">
                         <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
                         <br />
                         {
@@ -54,7 +54,7 @@ function Home(props) {
                                                     <strong>Este Articulo es de ciencia</strong> <small>@Fernando Araujo</small>
                                                     <br />
                                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                                            </p>
+                                                        </p>
                                             </div>
                                             <nav class="level is-mobile">
                                                 <div class="level-left">

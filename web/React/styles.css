@@ -14,8 +14,12 @@ body, html {
     height: 100%;
 }
 
-.router {
-    padding-top: 2.5rem;
+.Scroll{
+    height: calc(100vh - 7.1rem)
+}
+
+.Table {
+    height: calc(100vh - 9.5rem)
 }
 
 ::-webkit-scrollbar-track {
