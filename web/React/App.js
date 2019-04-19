@@ -8,7 +8,7 @@ function App() {
       <Switch>
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Home" component={Home} />
-        <Route exact path="/AdminUser" component={AdminUser} />
+        {JSON.parse(localStorage.getItem('User')).role == 'admin' ? <Route exact path="/AdminUser" component={AdminUser} /> : null}
         <Route exact path="**" render={() => (<Redirect to="Home" />)} />
       </Switch>
     </HashRouter>

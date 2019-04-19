@@ -124,8 +124,16 @@ function AdminUser(props) {
                                             <td class="has-text-centered">{Item.password}</td>
                                             <td class="has-text-centered">
                                                 <div class="buttons is-flex is-horizontal-center">
-                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>Actualizar</a>
-                                                    <a class="button is-danger is-outlined" onClick={Delete.bind(this, Item)}>Eliminar</a>
+                                                    <a class="button is-primary is-outlined is-medium" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
+                                                        <span class="icon is-medium">
+                                                            <i class="fas fa-user-cog fa-2x"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button is-medium is-danger is-outlined" onClick={Delete.bind(this, Item)}>
+                                                        <span class="icon is-medium">
+                                                            <i class="fas fa-user-times fa-2x"></i>
+                                                        </span>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -143,13 +151,7 @@ function AdminUser(props) {
         return (
             <div class="full">
                 <NavBar props={props} />
-                <div class="container full is-fullhd">
-                    <div class="columns full">
-                        <div class="column is-flex is-horizontal-center is-vertical-center">
-                            <img src="https://loading.io/spinners/liquid/lg.liquid-fill-preloader.gif" />
-                        </div>
-                    </div>
-                </div>
+                <Loader />
             </div>
         );
     }
