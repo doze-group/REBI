@@ -4,7 +4,7 @@ function NavBar(props) {
     return (
         <nav class="navbar level has-background-light">
             <div class="level-left Logo">
-                <div class="level-item">
+                <div class="level-item" onClick={() => props.props.history.push('/Home')}>
                     <img src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png" alt="Logo" />
                 </div>
             </div>

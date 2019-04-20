@@ -123,7 +123,7 @@ function AdminUser(props) {
                                             <td class="has-text-centered">{Item.role}</td>
                                             <td class="has-text-centered">{Item.password}</td>
                                             <td class="has-text-centered">
-                                                <div class="buttons is-flex is-horizontal-center">
+                                                <div class="buttons has-text-centered">
                                                     <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
                                                         <span class="icon">
                                                             <i class="fas fa-user-cog"></i>
@@ -144,7 +144,7 @@ function AdminUser(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-user-plus my-float"></i></a>
             </div>
         );
     } else {
