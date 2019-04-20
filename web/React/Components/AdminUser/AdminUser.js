@@ -1,4 +1,4 @@
-const { Component, useState } = React;
+const { Component, useState, useEffect } = React;
 
 function AdminUser(props) {
 
@@ -124,14 +124,14 @@ function AdminUser(props) {
                                             <td class="has-text-centered">{Item.password}</td>
                                             <td class="has-text-centered">
                                                 <div class="buttons is-flex is-horizontal-center">
-                                                    <a class="button is-primary is-outlined is-medium" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
-                                                        <span class="icon is-medium">
-                                                            <i class="fas fa-user-cog fa-2x"></i>
+                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
+                                                        <span class="icon">
+                                                            <i class="fas fa-user-cog"></i>
                                                         </span>
                                                     </a>
-                                                    <a class="button is-medium is-danger is-outlined" onClick={Delete.bind(this, Item)}>
-                                                        <span class="icon is-medium">
-                                                            <i class="fas fa-user-times fa-2x"></i>
+                                                    <a class="button is-danger is-outlined" onClick={Delete.bind(this, Item)}>
+                                                        <span class="icon">
+                                                            <i class="fas fa-user-times"></i>
                                                         </span>
                                                     </a>
                                                 </div>
