@@ -2,16 +2,25 @@ const { Component, useState } = React;
 
 function Files(props) {
 
-    const [Documents, setDocuments] = useState([]);
+    const [Documents, setDocuments] = useState([{ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], }]);
     const [Load, setLoad] = useState(true);
 
     var Items = <tr>
         <th class="has-text-centered">Titulo</th>
         <th class="has-text-centered">Descripción</th>
         <th class="has-text-centered">Tags</th>
-        <th class="has-text-centered">Archivo</th>
         <th class="has-text-centered">Acciones</th>
     </tr>
+
+    function Form() {
+        const MySwal = sweetalert2ReactContent(Swal)
+        MySwal.fire({
+            title: 'Agregar',
+            html: <FormFile Action={() => console.log('hola')} />,
+            showCloseButton: true,
+            showConfirmButton: false
+        });
+    }
 
     if (Load) {
         return (
@@ -37,23 +46,34 @@ function Files(props) {
                         </thead>
                         <tbody>
                             {
-                                Users.map((Item, i) => {
+                                Documents.map((Item, i) => {
                                     return (
                                         <tr>
                                             <td class="has-text-centered">{Item.titulo}</td>
                                             <td class="has-text-centered">{Item.descripcion}</td>
-                                            <td class="has-text-centered">{Item.tags}</td>
-                                            <td class="has-text-centered">{Item.archivo}</td>
                                             <td class="has-text-centered">
-                                                <div class="buttons is-flex is-horizontal-center">
+                                                <div class="tags is-horizontal-center">
+                                                    {
+                                                        Item.tags.map((item, i) => {
+                                                            return (
+                                                                <span class="tag is-success">
+                                                                    {item}
+                                                                </span>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </td>
+                                            <td class="has-text-centered">
+                                                <div class="buttons has-text-centered is-horizontal-center">
                                                     <a class="button is-primary is-outlined">
                                                         <span class="icon">
-                                                            <i class="fas fa-file-edit"></i>
+                                                            <i class="fas fa-file-signature"></i>
                                                         </span>
                                                     </a>
                                                     <a class="button is-danger is-outlined">
                                                         <span class="icon">
-                                                            <i class="fas fa-file-times"></i>
+                                                            <i class="fas fa-file-excel"></i>
                                                         </span>
                                                     </a>
                                                 </div>
@@ -66,7 +86,7 @@ function Files(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-file-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
             </div>
         );
     } else {

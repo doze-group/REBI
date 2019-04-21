@@ -3,7 +3,7 @@ const { Component, useState } = React;
 function FormFile(props) {
 
     const [Tags, setTags] = useState([]);
-
+    const [File, setFile] = useState({ name: '' })
     function Submit() {
 
     }
@@ -38,7 +38,7 @@ function FormFile(props) {
                     <textarea class="textarea" placeholder="Descripción del documento"></textarea>
                 </div>
             </div>
-            <div class="field has-addons">
+            <div class="field has-addons is-fullwidth">
                 <div class="control">
                     <input class="input" type="text" placeholder="Tag" id="tag" />
                 </div>
@@ -66,10 +66,10 @@ function FormFile(props) {
             </div>
             <div class="field">
                 <div class="control">
-                    <div class="file has-name is-boxed">
+                    <div class="file has-name is-boxed is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume" />
-                            <span class="file-cta">
+                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required/>
+                            <span class="file-cta has-text-centered">
                                 <span class="file-icon">
                                     <i class="fas fa-upload"></i>
                                 </span>
@@ -77,8 +77,8 @@ function FormFile(props) {
                                     Buscar Archivo
                                 </span>
                             </span>
-                            <span class="file-name">
-                                Screen Shot 2017-07-29 at 15.54.25.png
+                            <span class="file-name has-text-centered">
+                                {File.name}
                             </span>
                         </label>
                     </div>

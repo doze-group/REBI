@@ -36,6 +36,7 @@ and open the template in the editor.
   <script src="React/Components/FormUser/FormUser.js" type="text/babel"></script>
   <script src="React/Components/FormFile/FormFile.js" type="text/babel"></script>
   <script src="React/Components/Loader/Loader.js" type="text/babel"></script>
+  <script src="React/Components/Files/Files.js" type="text/babel"></script>
 
   <script src="React/Services/UserService.js" type="text/babel"></script>
   <script src="React/Utils/UserUtil.js" type="text/babel"></script>

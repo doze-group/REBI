@@ -51,7 +51,7 @@ function SelectBox(props) {
         {
             Title: 'Tus Archivos',
             Icon: 'fa-file-archive',
-            Function: () => { }
+            Function: () => props.history.push('/Files')
         },
         {
             Title: 'Inicio',
