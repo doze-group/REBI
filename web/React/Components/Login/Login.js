@@ -3,9 +3,10 @@ const { Component } = React;
 function Login(props) {
     return (
         <div class="container full is-fullhd">
-            <div class="columns full">
+            <NavBar props={props} />
+            <div class="columns Scroll">
                 <div class="column is-flex is-horizontal-center is-vertical-center is-multiline">
-                    <div class="rows">
+                    <div class="rows" style={{ marginTops: '-20px' }}>
                         <div class="row is-flex is-horizontal-center is-vertical-center">
                             <img
                                 src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png"

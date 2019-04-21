@@ -1,4 +1,4 @@
-const { Componente, useState, useEffect } = React
+const { Componente } = React
 
 function FormUser(props) {
 

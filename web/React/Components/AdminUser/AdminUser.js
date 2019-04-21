@@ -1,4 +1,4 @@
-const { Component, useState } = React;
+const { Component, useState, useEffect } = React;
 
 function AdminUser(props) {
 
@@ -56,7 +56,7 @@ function AdminUser(props) {
                     Swal.fire('err', err.toString(), 'error');
                 })
             }
-        })
+        });
     }
 
     function AddUserForm(User) {
@@ -123,9 +123,17 @@ function AdminUser(props) {
                                             <td class="has-text-centered">{Item.role}</td>
                                             <td class="has-text-centered">{Item.password}</td>
                                             <td class="has-text-centered">
-                                                <div class="buttons is-flex is-horizontal-center">
-                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>Actualizar</a>
-                                                    <a class="button is-danger is-outlined" onClick={Delete.bind(this, Item)}>Eliminar</a>
+                                                <div class="buttons is-horizontal-center">
+                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
+                                                        <span class="icon">
+                                                            <i class="fas fa-user-cog"></i>
+                                                        </span>
+                                                    </a>
+                                                    <a class="button is-danger is-outlined" onClick={Delete.bind(this, Item)}>
+                                                        <span class="icon">
+                                                            <i class="fas fa-user-times"></i>
+                                                        </span>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -136,20 +144,14 @@ function AdminUser(props) {
                         <tfoot>{Items}</tfoot>
                     </table>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-plus my-float"></i></a>
+                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-user-plus"></i></a>
             </div>
         );
     } else {
         return (
             <div class="full">
                 <NavBar props={props} />
-                <div class="container full is-fullhd">
-                    <div class="columns full">
-                        <div class="column is-flex is-horizontal-center is-vertical-center">
-                            <img src="https://loading.io/spinners/liquid/lg.liquid-fill-preloader.gif" />
-                        </div>
-                    </div>
-                </div>
+                <Loader />
             </div>
         );
     }
