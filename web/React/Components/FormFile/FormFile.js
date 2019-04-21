@@ -4,8 +4,11 @@ function FormFile(props) {
 
     const [Tags, setTags] = useState([]);
     const [File, setFile] = useState({ name: '' })
-    function Submit() {
 
+    function Submit() {
+        if(Tags.length <= 0){
+            document.getElementById('tag').className += ' is-danger';
+        }
     }
 
     function AddTag() {
@@ -17,6 +20,7 @@ function FormFile(props) {
                 setTags(temp);
             }
             document.getElementById('tag').value = '';
+            document.getElementById('tag').className = 'input';
         }
     }
 
@@ -38,7 +42,7 @@ function FormFile(props) {
                     <textarea class="textarea" placeholder="Descripción del documento"></textarea>
                 </div>
             </div>
-            <div class="field has-addons is-fullwidth">
+            <div class="field has-addons">
                 <div class="control">
                     <input class="input" type="text" placeholder="Tag" id="tag" />
                 </div>
@@ -68,7 +72,7 @@ function FormFile(props) {
                 <div class="control">
                     <div class="file has-name is-boxed is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required/>
+                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required accept=".xlsx, .xls, .doc, .docx, .ppt, .pptx, .pdf"/>
                             <span class="file-cta has-text-centered">
                                 <span class="file-icon">
                                     <i class="fas fa-upload"></i>
