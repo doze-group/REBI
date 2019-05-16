@@ -1,12 +1,12 @@
 const { Component } = React;
-const { Redirect } = ReactRouterDOM;
 
-function Home() {
+function Home(props) {
     var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
     return (
         <div class="container full is-fullhd">
-            <div class="columns full">
-                <div class="column full is-3">
+            <NavBar props={props} />
+            <div class="columns">
+                <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
                     <nav class="panel Overflow">
                         <p class="panel-heading">Categorias</p>
                         <div class="panel-block">
@@ -35,44 +35,46 @@ function Home() {
                         }
                     </nav>
                 </div>
-                <div class="column is-9 is-multiline Overflow">
-                    <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
-                    <br />
-                    {
-                        Cate.map((item, i) => {
-                            return (
-                                <article class="media">
-                                    <figure class="media-left">
-                                        <p class="image is-64x64">
-                                            <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
-                                        </p>
-                                    </figure>
-                                    <div class="media-content">
-                                        <div class="content">
-                                            <p>
-                                                <strong>Este Articulo es de ciencia</strong> <small>@Fernando Araujo</small>
-                                                <br />
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                <div class="column">
+                    <div class="row Overflow Scroll">
+                        <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
+                        <br />
+                        {
+                            Cate.map((item, i) => {
+                                return (
+                                    <article class="media">
+                                        <figure class="media-left">
+                                            <p class="image is-64x64">
+                                                <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
                                             </p>
-                                        </div>
-                                        <nav class="level is-mobile">
-                                            <div class="level-left">
-                                                <a class="level-item">
-                                                    <span class="icon is-small"><i class="fas fa-reply"></i></span>
-                                                </a>
-                                                <a class="level-item">
-                                                    <span class="icon is-small"><i class="fas fa-download"></i></span>
-                                                </a>
-                                                <a class="level-item">
-                                                    <span class="icon is-small"><i class="fas fa-heart"></i></span>
-                                                </a>
+                                        </figure>
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong>Este Articulo es de ciencia</strong> <small>@Fernando Araujo</small>
+                                                    <br />
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                                        </p>
                                             </div>
-                                        </nav>
-                                    </div>
-                                </article>
-                            )
-                        })
-                    }
+                                            <nav class="level is-mobile">
+                                                <div class="level-left">
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-download"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                                                    </a>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </article>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>
