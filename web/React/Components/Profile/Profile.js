@@ -3,17 +3,10 @@ const { Component } = React;
 function Profile(props) {
 
     const [Load, setLoad] = useState(true);
-
-    if (Load) {
-        <div class="container full is-fullhd">
+    return (
+        <div class="full is-fullhd">
             <NavBar props={props} />
+            {Load ? null : <Loader />}
         </div>
-    } else {
-        return (
-            <div class="full">
-                <NavBar props={props} />
-                <Loader />
-            </div>
-        );
-    }
+    );
 }

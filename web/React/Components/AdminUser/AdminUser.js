@@ -91,7 +91,7 @@ function AdminUser(props) {
 
     if (Load) {
         return (
-            <div class="container full is-fullhd">
+            <div class="full is-fullhd">
                 <NavBar props={props} />
                 <div class="row is-flex is-horizontal-center is-vertical-center is-multiline">
                     <div class="field has-addons">

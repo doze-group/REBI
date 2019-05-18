@@ -3,7 +3,7 @@ const { Component } = React;
 function Home(props) {
     var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
     return (
-        <div class="container full is-fullhd">
+        <div class="full is-fullhd">
             <NavBar props={props} />
             <div class="columns">
                 <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
