@@ -10,24 +10,34 @@ body, html {
     padding-right: 20%;
 }
 
-.full {
-    height: 100%;
+.Scroll {
+    overflow-y: auto;
+    padding-bottom: 20px;
 }
 
-.Scroll{
-    height: calc(100vh - 7.1rem)
+.Files {
+    max-height: calc(88vh - 5.5rem);
+    height: calc(88vh - 5.5rem);
 }
 
-.Table {
-    height: calc(100vh - 9.5rem)
+.User {
+    max-height: calc(92vh - 5.5rem);
+    height: calc(92vh - 5.5rem);
 }
 
-.color {
-    padding-bottom: 20px;border-radius: 10px 10px 0 0;
-    padding: 20px;
-    background: #2b5876;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+table {
+    border-radius: 0 0 10px 10px;
+    overflow-y: scroll;
+}
+
+.gradient {
+    border-radius: 10px 10px 0 0;
+    background: #2b5876;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 ::-webkit-scrollbar-track {
@@ -47,12 +57,14 @@ body, html {
 }
 
 .card {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     justify-content: space-between;
     background-color: transparent;
-    -webkit-box-shadow: -7px 11px 25px -9px rgba(0,0,0,1);
-    -moz-box-shadow: -7px 11px 25px -9px rgba(0,0,0,1);
-    box-shadow: -7px 11px 25px -9px rgba(0,0,0,1);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
 }
 
 .is-horizontal-center {
@@ -62,8 +74,4 @@ body, html {
 .is-vertical-center {
     display: flex;
     align-items: center;
-}
-
-.Overflow{
-    overflow-y: auto;
 }

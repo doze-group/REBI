@@ -1,42 +1,46 @@
 const { Component } = React;
 
 function Home(props) {
-    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
+    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', 'Cultura', 'Turismo']
     return (
-        <div class="full is-fullhd">
-            <NavBar props={props} />
-            <div class="columns">
-                <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
-                    <nav class="panel Overflow">
-                        <p class="panel-heading">Categorias</p>
-                        <div class="panel-block">
-                            <div class="field has-addons">
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Buscar" />
-                                </div>
-                                <div class="control">
-                                    <a class="button is-info">
-                                        Buscar
+        <div class="hero is-fullheight">
+            <div class="hero-head">
+                <NavBar props={props} />
+            </div>
+            <div class="hero-body">
+                <div class="columns">
+                    <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
+                        <div class="card has-text-centered is-fullwidth" >
+                            <nav class="panel is-paddingless">
+                                <p class="panel-heading gradient has-text-white">Categorias</p>
+                                <div class="panel-block">
+                                    <div class="field has-addons">
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Buscar" />
+                                        </div>
+                                        <div class="control">
+                                            <a class="button is-info">
+                                                Buscar
                                     </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                {
+                                    Cate.map((item, i) => {
+                                        return (
+                                            <a class="panel-block is-active">
+                                                <span class="panel-icon">
+                                                    <i class="fas fa-book" aria-hidden="true"></i>
+                                                </span>
+                                                {item}
+                                            </a>
+                                        )
+                                    })
+                                }
+                            </nav>
                         </div>
-                        {
-                            Cate.map((item, i) => {
-                                return (
-                                    <a class="panel-block is-active">
-                                        <span class="panel-icon">
-                                            <i class="fas fa-book" aria-hidden="true"></i>
-                                        </span>
-                                        {item}
-                                    </a>
-                                )
-                            })
-                        }
-                    </nav>
-                </div>
-                <div class="column">
-                    <div class="row Overflow Scroll">
+                    </div>
+                    <div class="column is-fullheight Scroll User">
                         <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
                         <br />
                         {
@@ -77,6 +81,6 @@ function Home(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

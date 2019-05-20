@@ -48,7 +48,7 @@ and open the template in the editor.
 </head>
 
 <body>
-  <div id="root" class="full"></div>
+  <div id="root" class="is-fullheight"></div>
 </body>
 
 </html>
