@@ -20,80 +20,100 @@ function Files(props) {
             showCloseButton: true,
             showConfirmButton: false
         });
+        var temp = [];
+        for (let index = 0; index < 100; index++) {
+            temp.push({ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], });
+        }
+        setDocuments(temp);
     }
 
     if (Load) {
         return (
-            <div class="container full is-fullhd">
-                <NavBar props={props} />
-                <div class="row is-flex is-horizontal-center is-vertical-center is-multiline">
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Buscar por titulo" />
-                        </div>
-                        <div class="control">
-                            <a class="button is-info">
-                                Buscar
+            <div class="hero is-fullheight">
+                <div class="hero-head">
+                    <NavBar props={props} />
+                </div>
+                <div class="hero-body" style={{ alignItems: 'start', }}>
+                    <div class="rows" style={{ width: '100%' }}>
+                        <div class="row is-horizontal-center is-vertical-center is-multiline">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Buscar por titulo" />
+                                </div>
+                                <div class="control">
+                                    <a class="button is-info">
+                                        Buscar
                             </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row Scroll Files" style={{ paddingTop: '10px' }}>
+                            <div class="card">
+                                <header class="card-header gradient">
+                                    <p class="card-header-title has-text-white is-horizontal-center">Documentos</p>
+                                </header>
+                                <div class="card-content is-paddingless">
+                                    <table class="table is-fullwidth">
+                                        <thead>
+                                            {Items}
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                Documents.map((Item, i) => {
+                                                    return (
+                                                        <tr>
+                                                            <td class="has-text-centered">{Item.titulo}</td>
+                                                            <td class="has-text-centered">{Item.descripcion}</td>
+                                                            <td class="has-text-centered">
+                                                                <div class="tags is-horizontal-center">
+                                                                    {
+                                                                        Item.tags.map((item, i) => {
+                                                                            return (
+                                                                                <span class="tag is-success">
+                                                                                    {item}
+                                                                                </span>
+                                                                            )
+                                                                        })
+                                                                    }
+                                                                </div>
+                                                            </td>
+                                                            <td class="has-text-centered">
+                                                                <div class="buttons has-text-centered is-horizontal-center">
+                                                                    <a class="button is-primary is-outlined">
+                                                                        <span class="icon">
+                                                                            <i class="fas fa-file-signature"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                    <a class="button is-danger is-outlined">
+                                                                        <span class="icon">
+                                                                            <i class="fas fa-file-excel"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row Overflow Table">
-                    <table class="table is-fullwidth">
-                        <thead>
-                            <tr><th colspan="4" class="has-text-centered">Documentos</th></tr>
-                            {Items}
-                        </thead>
-                        <tbody>
-                            {
-                                Documents.map((Item, i) => {
-                                    return (
-                                        <tr>
-                                            <td class="has-text-centered">{Item.titulo}</td>
-                                            <td class="has-text-centered">{Item.descripcion}</td>
-                                            <td class="has-text-centered">
-                                                <div class="tags is-horizontal-center">
-                                                    {
-                                                        Item.tags.map((item, i) => {
-                                                            return (
-                                                                <span class="tag is-success">
-                                                                    {item}
-                                                                </span>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <div class="buttons has-text-centered is-horizontal-center">
-                                                    <a class="button is-primary is-outlined">
-                                                        <span class="icon">
-                                                            <i class="fas fa-file-signature"></i>
-                                                        </span>
-                                                    </a>
-                                                    <a class="button is-danger is-outlined">
-                                                        <span class="icon">
-                                                            <i class="fas fa-file-excel"></i>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                        <tfoot>{Items}</tfoot>
-                    </table>
                 </div>
                 <a class="button is-primary float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
             </div>
         );
     } else {
         return (
-            <div class="full">
-                <NavBar props={props} />
-                <Loader />
+            <div class="hero is-fullheight">
+                <div class="hero-head">
+                    <NavBar props={props} />
+                </div>
+                <div class="hero-body is-horizontal-center is-vertical-center">
+                    <Loader />
+                </div>
             </div>
         );
     }
