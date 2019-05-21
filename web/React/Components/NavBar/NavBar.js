@@ -20,7 +20,7 @@ function NavBar(props) {
                                     <button class="button is-transparent has-text-white" aria-haspopup="true" aria-controls="dropdown-menu3">
                                         <span class="image is-24x24">
                                             <figure>
-                                                <img src={User.img} onError={(e) =>         e.target.src = "https://coparmexmetropolitano.mx/themes/websiteV2/uploads/candidatos/alcaldias/jorge-martinez.png"} />
+                                                <img src={User.img} onError={(e) => e.target.src = "https://coparmexmetropolitano.mx/themes/websiteV2/uploads/candidatos/alcaldias/jorge-martinez.png"} />
                                             </figure>
                                         </span>
                                         <span class="Nombre">{User.nombre}</span>
@@ -49,7 +49,7 @@ function SelectBox(props) {
         {
             Title: 'Tu Perfil',
             Icon: 'fa-user-circle',
-            Function: () => { }
+            Function: () => props.history.push('/Profile')
         },
         {
             Title: 'Tus Archivos',

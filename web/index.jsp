@@ -28,6 +28,7 @@ and open the template in the editor.
   <script src="libraries/react4.3.0-router-dom.js"></script>
 
   <script charset="utf-8" src="libraries/babel6.26.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="libraries/sweetalert2.all.min.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/sweetalert2-react-content@1.1.0/dist/sweetalert2-react-content.umd.min.js"></script>
