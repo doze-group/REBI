@@ -24,7 +24,9 @@ and open the template in the editor.
   <Link rel="stylesheet" href="./libraries/sweetalert2.min.css" />
   <script src="libraries/react16.8.1.min.js"></script>
   <script src="libraries/react16.8.1-dom.min.js"></script>
+
   <script src="libraries/react4.3.0-router-dom.js"></script>
+
   <script charset="utf-8" src="libraries/babel6.26.0.min.js"></script>
   <script src="libraries/sweetalert2.all.min.js"></script>
   <script

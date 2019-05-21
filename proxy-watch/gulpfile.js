@@ -22,14 +22,17 @@ let test = pathlocal.split('//');
 const basic = {
   project_name_folder: test[test.length-2],
   project_path: `${pathlocal}`,
+  tomcat_port: 8080 //rober19
+ // tomcat_port: 4200 //fernando
 };
 
 const config = {
   project_name_folder: basic.project_name_folder,  
   project_path: basic.project_path,
-  project_path_build_web: `${basic.project_path}\\build\\web`,
-  tomcat_path: 'E:\\Programas\\Xampp\\tomcat',
-  tomcat_proxy: `http://localhost:8080/${basic.project_name_folder}`,
+  project_path_build_web: `${basic.project_path}build//web`,
+ // tomcat_path: 'E:\\Programas\\Xampp\\tomcat', //fernando
+  tomcat_path: 'C:\\xampp\\tomcat', //rober19
+  tomcat_proxy: `http://localhost:${basic.tomcat_port}/${basic.project_name_folder}`,
   port_watch: 3500,
   watch_: false,
 };
