@@ -1,6 +1,9 @@
 const { Component } = React;
 
 function NavBar(props) {
+
+    const User = JSON.parse(localStorage.getItem('User'));
+
     return (
         <nav class="navbar level">
             <div class="level-left Logo">
@@ -10,17 +13,17 @@ function NavBar(props) {
             </div>
             <div class="level-right">
                 <div class="level-item NavDrop is-hidden-mobile">
-                    {localStorage.getItem('User') != null ?
+                    {User != null ?
                         <div>
                             <div class="dropdown is-hoverable is-left">
                                 <div class="dropdown-trigger">
                                     <button class="button is-transparent has-text-white" aria-haspopup="true" aria-controls="dropdown-menu3">
                                         <span class="image is-24x24">
                                             <figure>
-                                                <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
+                                                <img src={User.img} onError={(e) =>         e.target.src = "https://coparmexmetropolitano.mx/themes/websiteV2/uploads/candidatos/alcaldias/jorge-martinez.png"} />
                                             </figure>
                                         </span>
-                                        <span class="Nombre">Fernando Araujo</span>
+                                        <span class="Nombre">{User.nombre}</span>
                                         <span class="icon is-small">
                                             <i class="fas fa-angle-down" aria-hidden="true"></i>
                                         </span>
@@ -29,7 +32,7 @@ function NavBar(props) {
                                 {SelectBox(props.props)}
                             </div>
                         </div>
-                        : <button class="button is-link is-fullwidth">
+                        : <button class="button is-link is-fullwidth" onClick={() => props.props.history.push('/Login')}>
                             <span class="icon is-small">
                                 <i class="fas fa-sign-in-alt"></i>
                             </span>
