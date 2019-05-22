@@ -31,7 +31,7 @@ const config = {
   project_path: basic.project_path,
   project_path_build_web: `${basic.project_path}build//web`,
  // tomcat_path: 'E:\\Programas\\Xampp\\tomcat', //fernando
-  tomcat_path: 'C:\\xampp\\tomcat', //rober19
+  tomcat_path: 'C:\\apache-tomcat-8.5.37-windows-x86\\apache-tomcat-8.5.37', //rober19
   tomcat_proxy: `http://localhost:${basic.tomcat_port}/${basic.project_name_folder}`,
   port_watch: 3500,
   watch_: false,
