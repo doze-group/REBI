@@ -43,12 +43,11 @@ public class UserServlet extends HttpServlet {
         res.setContentType("application/json");
         res.setCharacterEncoding("UTF-8");
         String type = "";
-
+        Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
         try {
             type = req.getParameter("type");
             switch (type) {
                 case "getall": {
-                    Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
                     String UserListJson = prettyGson.toJson(userController.GetUsers());
                     out.print(UserListJson);
                     break;
@@ -60,15 +59,22 @@ public class UserServlet extends HttpServlet {
                     out.print(userJson);
                     break;
                 }
+                case "login": {
+                    prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                    Gson gson = new Gson();
+                    String email = req.getParameter("email");
+                    String password = req.getParameter("password");                    
+                    String res_1 = prettyGson.toJson(userController.LoginUser(new User("", email, password, "", "")));                    
+                    out.print(res_1);
+                    break;
+                }
                 default:
-                    Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
                     String UserListJson = prettyGson.toJson(new Object[]{"debe enviar el parametro ?type=getall or ?type=getbyId&id=exampleid", 200});
                     out.print(UserListJson);
                     break;
-
             }
         } catch (Exception e) {
-            Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+
             String UserListJson = prettyGson.toJson(new Object[]{"debe enviar el parametro ?type=getall or ?type=getbyId&id=exampleid", 200});
             out.print(UserListJson);
         }
@@ -100,7 +106,7 @@ public class UserServlet extends HttpServlet {
         }
 
     }
-    
+
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         PrintWriter out = res.getWriter();
@@ -113,7 +119,7 @@ public class UserServlet extends HttpServlet {
             String body;
             while ((body = req.getReader().readLine()) != null) {
                 sb.append(body);
-            }            
+            }
             //out.print(gson.toJson(jsres("msg", "hello from put")));
 
             User user = (User) gson.fromJson(sb.toString(), User.class);
@@ -125,10 +131,10 @@ public class UserServlet extends HttpServlet {
             ex.printStackTrace();
         }
 
-         //To change body of generated methods, choose Tools | Templates.
+        //To change body of generated methods, choose Tools | Templates.
     }
-    
-     @Override
+
+    @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
