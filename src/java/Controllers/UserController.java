@@ -29,6 +29,10 @@ public class UserController {
         return Users;
     }
 
+    public User LoginUser(User user) {
+        return logingMySQL(user);
+    }
+
     public void AddUser(User user) {
         postMySQL(user);
     }
@@ -152,8 +156,8 @@ public class UserController {
             ps.setString(4, newUser.getId_ciudadania());
             ps.setString(5, newUser.getId_institucional());
             ps.setString(6, newUser.getRole());
-            
-             ps.setInt(7, newUser.getId_db());
+
+            ps.setInt(7, newUser.getId_db());
 
             int i = ps.executeUpdate();
             if (i != 0) {
@@ -175,4 +179,48 @@ public class UserController {
         }
     }
 
+    protected User logingMySQL(User user) {
+        User result_user = null;
+        try {
+            ps = connection.prepareStatement("Select * from usuarios where (password=? and email=?); ");
+            System.out.println(" " + user.getPassword() + "  " + user.getEmail());
+            ps.setString(1, user.getPassword());
+            ps.setString(2, user.getEmail());
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+
+            // iterate through the java resultset
+            while (rs.next()) {
+
+                int id_db = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                String id_institucional = rs.getString("id_institucional");
+                String id_ciudadania = rs.getString("id_ciudadania");
+                String role = rs.getString("role");
+
+                System.out.println(nombre);
+                User p1 = new User(nombre, password, email, id_institucional, id_ciudadania);
+                p1.setId_db(id_db);
+                p1.setRole(role);
+                result_user = p1;
+
+            }
+
+        } catch (java.sql.SQLIntegrityConstraintViolationException e) {
+            System.err.println(e);
+        } catch (java.sql.SQLSyntaxErrorException e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        }
+        return result_user;
+    }
 }
