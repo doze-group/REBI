@@ -10,9 +10,9 @@
   "author": "Juan Batty<jmbl1685@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.26.5",
     "cmd-exec": "^0.1.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-server-livereload": "^1.9.2",
     "node-cmd": "^3.0.0",
     "node-watch": "^0.6.0"

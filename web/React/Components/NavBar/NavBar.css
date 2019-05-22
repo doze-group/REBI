@@ -10,3 +10,16 @@
 .NavDrop {
     padding-right: 15px;
 }
+
+.hero .navbar {
+    background: #2b5876;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876);
+}
+
+.is-transparent {
+    background-color: transparent;
+    border-color: transparent;
+}
