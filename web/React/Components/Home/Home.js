@@ -1,111 +1,82 @@
 const { Component } = React;
-const { Redirect } = ReactRouterDOM;
 
-function Home() {
-  //   function AddProduct(e) {
-  //     e.preventDefault();
-  //     const { Id, Name, ImageURL, Price } = e.target;
-
-  //     const product = {
-  //       Name: Name.value,
-  //       ImageURL: ImageURL.value,
-  //       Price: Price.value,
-  //     };
-
-  //     fetch('/jsp-servlets-react/product', {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       method: 'post',
-  //       body: JSON.stringify(product),
-  //     })
-  //       .then(res => res.json())
-  //       .then(res => {
-  //         alert(JSON.stringify(res));
-  //         document.getElementById('return').click();
-  //       })
-  //       .catch(err => alert(err));
-
-  //     e.target.reset();
-  //   }
-
-  return (
-    <header>
-      <nav className="navbar has-shadow" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item">
-            <img src="http://aulavirtual.tecnologicocomfenalcovirtual.edu.co/ferrum/theme/image.php/adaptable/theme/1552317524/favicon" alt="Bulma Admin Template logo" />
-          </a>
-          <a className="navbar-item is-tab is-hidden-mobile is-active">
-            <span className="icon is-medium">
-              <i className="fa fa-home" />
-            </span>
-            Home
-          </a>
-          <a className="navbar-item is-tab is-hidden-mobile">Features</a>
-          <a className="navbar-item is-tab is-hidden-mobile">Pricing</a>
-          <a className="navbar-item is-tab is-hidden-mobile">About</a>
-
-          <button className="button navbar-burger" data-target="navMenu">
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-
-        <div className="navbar-menu navbar-end" id="navMenu">
-          <a className="navbar-item is-tab is-hidden-tablet is-active">Home</a>
-          <a className="navbar-item is-tab is-hidden-tablet">Features</a>
-          <a className="navbar-item is-tab is-hidden-tablet">Pricing</a>
-          <a className="navbar-item is-tab is-hidden-tablet">About</a>
-          <a className="navbar-item nav-tag">
-            <span className="icon is-small">
-              <i className="fa fa-envelope-o" />
-            </span>
-            <span className="tag is-primary tag-notif">6</span>
-          </a>
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">
-              <figure className="image is-32x32" Style="margin-right:.5em;">
-                <img src="https://avatars1.githubusercontent.com/u/7221389?v=4&s=32" />
-              </figure>
-              mazipan
-            </a>
-
-            <div className="navbar-dropdown is-right">
-              <a className="navbar-item">
-                <span className="icon is-small">
-                  <i className="fa fa-user-o" />
-                </span>
-                Profile
-              </a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">
-                <span className="icon is-small">
-                  <i className="fa fa-power-off" />
-                </span>
-                Logout
-              </a>
+function Home(props) {
+    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', '', '']
+    return (
+        <div class="container full is-fullhd">
+            <NavBar props={props} />
+            <div class="columns">
+                <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
+                    <nav class="panel Overflow">
+                        <p class="panel-heading">Categorias</p>
+                        <div class="panel-block">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Buscar" />
+                                </div>
+                                <div class="control">
+                                    <a class="button is-info">
+                                        Buscar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {
+                            Cate.map((item, i) => {
+                                return (
+                                    <a class="panel-block is-active">
+                                        <span class="panel-icon">
+                                            <i class="fas fa-book" aria-hidden="true"></i>
+                                        </span>
+                                        {item}
+                                    </a>
+                                )
+                            })
+                        }
+                    </nav>
+                </div>
+                <div class="column">
+                    <div class="row Overflow Scroll">
+                        <p class="is-size-4 has-text-link">Ultimos Añadidos</p>
+                        <br />
+                        {
+                            Cate.map((item, i) => {
+                                return (
+                                    <article class="media">
+                                        <figure class="media-left">
+                                            <p class="image is-64x64">
+                                                <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
+                                            </p>
+                                        </figure>
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong>Este Articulo es de ciencia</strong> <small>@Fernando Araujo</small>
+                                                    <br />
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+                                                        </p>
+                                            </div>
+                                            <nav class="level is-mobile">
+                                                <div class="level-left">
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-download"></i></span>
+                                                    </a>
+                                                    <a class="level-item">
+                                                        <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                                                    </a>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </article>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </nav>
-      <div className="container">
-        <div className="level">
-          <div className="level-left">
-            <div className="level-item">            
-              <div className="title">Dashboard</div>
-            </div>
-          </div>
-          <div className="level-right">
-            <div className="level-item">
-              <button type="button" className="button is-small">
-                __dsd
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
+    );
 }
