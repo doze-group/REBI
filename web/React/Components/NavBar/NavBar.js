@@ -8,7 +8,7 @@ function NavBar(props) {
         <nav class="navbar level">
             <div class="level-left Logo">
                 <a class="level-item" onClick={() => props.props.history.push('/Home')}>
-                    <img src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png" alt="Logo" />
+                    <img src="./React/Images/Logo.png" alt="Logo"/>
                 </a>
             </div>
             <div class="level-right">

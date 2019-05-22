@@ -48,7 +48,7 @@ function Files(props) {
                             </div>
                         </div>
                         <div class="row Scroll Files" style={{ paddingTop: '10px' }}>
-                            <div class="card">
+                            <div class="card CardTable">
                                 <header class="card-header gradient">
                                     <p class="card-header-title has-text-white is-horizontal-center">Documentos</p>
                                 </header>

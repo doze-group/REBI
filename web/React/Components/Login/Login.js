@@ -30,10 +30,7 @@ function Login(props) {
                             <div class="card-content is-horizontal-center is-paddingless">
                                 <div class="rows">
                                     <div class="row is-horizontal-center is-vertical-center gradient" style={{ padding: '20px', }}>
-                                        <img
-                                            src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png"
-                                            alt="Placeholder image"
-                                        />
+                                        <img src="./React/Images/Logo.png" alt="Logo" />
                                     </div>
                                     <div class="row" style={{ padding: '20px' }}>
                                         <form action="javascript:;" onSubmit={Submit.bind(this)} method="POST">

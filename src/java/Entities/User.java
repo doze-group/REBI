@@ -36,6 +36,10 @@ public class User {
         this.id_ciudadania = id_ciudadania;
     }
 
+    public User() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getRole() {
         return role;
     }

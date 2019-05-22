@@ -47,7 +47,7 @@ function Profile(props) {
             {Load ?
                 <div class="hero-body is-fullheight">
                     <div class="columns Profile" style={{ width: '100%' }}>
-                        <div class="column is-one-quarter Scroll is-hidden-mobile">
+                        <div class="column is-3 Scroll is-hidden-mobile">
                             <div class="card">
                                 <header class="card-header gradient">
                                     <p class="card-header-title has-text-white is-horizontal-center">{User.nombre}</p>

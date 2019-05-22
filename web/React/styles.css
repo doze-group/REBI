@@ -82,6 +82,12 @@ table {
     border-color: white;
 }
 
+.CardTable {
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+}
+
 .is-horizontal-center {
     justify-content: center;
 }
