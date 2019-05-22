@@ -6,7 +6,7 @@ function Login(props) {
         document.getElementById('login').classList.add('is-loading');
         setTimeout(function () {
             if (LoginUser(document.getElementById('email').value, document.getElementById('password').value)) {
-                window.location.href = './#/Home';
+                window.location.reload();
             } else {
                 Swal.fire(
                     'Error de autenticación',

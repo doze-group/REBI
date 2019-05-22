@@ -19,10 +19,6 @@ body, html {
     border-bottom: 1px solid rgb(219, 219, 219);
 }
 
-.columns {
-    width: 100%;
-}
-
 .Files {
     max-height: calc(88vh - 5.5rem);
     height: calc(88vh - 5.5rem);
@@ -31,6 +27,16 @@ body, html {
 .User {
     max-height: calc(92vh - 5.5rem);
     height: calc(92vh - 5.5rem);
+}
+
+.Profile {
+    max-height: calc(90vh - 3.25rem);
+    height: calc(90vh - 3.25rem);
+}
+
+.tabs-content {
+    max-height: calc(83vh - 5.25rem);
+    height: calc(83vh - 5.25rem);
 }
 
 table {

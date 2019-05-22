@@ -80,7 +80,7 @@ function SelectBox(props) {
     Items.push({
         Title: 'Salir',
         Icon: 'fa-sign-out-alt',
-        Function: () => { }
+        Function: Logout
     });
 
     return (

@@ -57,3 +57,8 @@ function LoginUser(email, password) {
     }
     return log;
 }
+
+function Logout() {
+    localStorage.removeItem('User');
+    window.location.reload();
+}
