@@ -9,6 +9,7 @@ function App() {
       <Switch>
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Home" component={Home} />
+        {User != null ? <Route exact path="/Profile" component={Profile}></Route> : null}
         {User != null ? <Route exact path="/Files" component={Files}></Route> : null}
         {User != null && User.role == 'admin' ? <Route exact path="/AdminUser" component={AdminUser} /> : null}
         <Route exact path="**" render={() => (<Redirect to="Home" />)} />

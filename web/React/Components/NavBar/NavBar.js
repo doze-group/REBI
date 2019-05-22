@@ -2,11 +2,11 @@ const { Component } = React;
 
 function NavBar(props) {
     return (
-        <nav class="navbar level has-background-light">
+        <nav class="navbar level">
             <div class="level-left Logo">
-                <div class="level-item" onClick={() => props.props.history.push('/Home')}>
+                <a class="level-item" onClick={() => props.props.history.push('/Home')}>
                     <img src="https://tecnologicocomfenalco.edu.co/sites/default/files/Logo.png" alt="Logo" />
-                </div>
+                </a>
             </div>
             <div class="level-right">
                 <div class="level-item NavDrop is-hidden-mobile">
@@ -14,7 +14,7 @@ function NavBar(props) {
                         <div>
                             <div class="dropdown is-hoverable is-left">
                                 <div class="dropdown-trigger">
-                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+                                    <button class="button is-transparent has-text-white" aria-haspopup="true" aria-controls="dropdown-menu3">
                                         <span class="image is-24x24">
                                             <figure>
                                                 <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
