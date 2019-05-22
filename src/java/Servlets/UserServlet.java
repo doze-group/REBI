@@ -48,7 +48,6 @@ public class UserServlet extends HttpServlet {
             type = req.getParameter("type");
             switch (type) {
                 case "getall": {
-
                     String UserListJson = prettyGson.toJson(userController.GetUsers());
                     out.print(UserListJson);
                     break;
@@ -64,18 +63,15 @@ public class UserServlet extends HttpServlet {
                     prettyGson = new GsonBuilder().setPrettyPrinting().create();
                     Gson gson = new Gson();
                     String email = req.getParameter("email");
-                    String password = req.getParameter("password");
-                    
+                    String password = req.getParameter("password");                    
                     String res_1 = prettyGson.toJson(userController.LoginUser(new User("", email, password, "", "")));                    
                     out.print(res_1);
                     break;
                 }
                 default:
-
                     String UserListJson = prettyGson.toJson(new Object[]{"debe enviar el parametro ?type=getall or ?type=getbyId&id=exampleid", 200});
                     out.print(UserListJson);
                     break;
-
             }
         } catch (Exception e) {
 
