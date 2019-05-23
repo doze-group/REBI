@@ -75,7 +75,7 @@ function Profile(props) {
                             </div>
                         </div>
                         <div class="column is-fullwidth">
-                            <div class="tabs is-centered is-boxed">
+                            <div class="tabs is-centered is-boxed border">
                                 <ul>
                                     <li class="is-active" onClick={() => TabsActive('Downloads', ['Favorites', 'Activity'])} id="Downloads">
                                         <a>
@@ -99,10 +99,10 @@ function Profile(props) {
                             </div>
                             <div class="tabs-content Scroll">
                                 <div class="tab-content is-active" id="Downloads-Content">
-                                    <p>Content 1</p>
+                                    <ListMedia Array={[1, 2, 3, 5, 6]} />
                                 </div>
                                 <div class="tab-content is-hidden" id="Favorites-Content">
-                                    <p>Content 2</p>
+                                    <ListMedia Array={[1, 2, 3, 5, 6]} />
                                 </div>
                                 <div class="tab-content is-hidden" id="Activity-Content">
                                     <canvas id="Chart" class="is-fullwidth is-fullheigth"></canvas>

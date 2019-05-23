@@ -13,7 +13,7 @@ function FileId(props) {
         Load ?
           <div class="hero-body">
             <div class="columns" style={{ width: '100%' }}>
-              <div class="column is-3" >
+              <div class="column is-3 is-vertical-center User Scroll" >
                 <div class="card">
                   <header class="card-header color gradient">
                     <p class="card-header-title has-text-white is-horizontal-center">
@@ -35,12 +35,9 @@ function FileId(props) {
                   </footer>
                 </div>
               </div>
-              <div class="column">
-                <p class="is-fullwidth"></p>
-                <FileViewer
-                  fileType={"docx"}
-                  filePath={"https://www.fdi.ucm.es/profesor/luis/fp/FP.pdf"} />
-                <iframe src="" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
+              <div class="column User Scroll">
+                <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>Vista Previa</p>
+                <iframe src="https://docs.google.com/viewerng/viewer?url=https://www.fdi.ucm.es/profesor/luis/fp/FP01.pptx&embedded=true" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
               </div>
             </div>
           </div>
