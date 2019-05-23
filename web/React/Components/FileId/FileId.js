@@ -37,7 +37,10 @@ function FileId(props) {
               </div>
               <div class="column">
                 <p class="is-fullwidth"></p>
-                <iframe src="https://www.fdi.ucm.es/profesor/luis/fp/FP.pdf" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen/>
+                <FileViewer
+                  fileType={"docx"}
+                  filePath={"https://www.fdi.ucm.es/profesor/luis/fp/FP.pdf"} />
+                <iframe src="" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
               </div>
             </div>
           </div>
