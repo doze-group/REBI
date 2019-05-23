@@ -110,7 +110,7 @@ function AdminUser(props) {
                             </div>
                         </div>
                         <div class="row Scroll User" style={{ paddingTop: '10px' }}>
-                            <div class="card">
+                            <div class="card CardTable">
                                 <div class="card-content is-paddingless">
                                     <header class="card-header gradient">
                                         <p class="card-header-title has-text-white is-horizontal-center">Usuarios</p>

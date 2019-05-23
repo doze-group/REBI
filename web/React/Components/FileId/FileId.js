@@ -36,9 +36,11 @@ function FileId(props) {
                 </div>
               </div>
               <div class="column">
-                <p class="is-size-4 has-text-link">Vista previa</p>
                 <p class="is-fullwidth"></p>
-                <object data="https://freeditorial.com/es/books/asesinato-en-el-orient-express/downloadbookepub/pdf" type="application/*" width="100%" height="100%"/>
+                <FileViewer
+                  fileType={"docx"}
+                  filePath={"https://www.fdi.ucm.es/profesor/luis/fp/FP.pdf"} />
+                <iframe src="" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
               </div>
             </div>
           </div>

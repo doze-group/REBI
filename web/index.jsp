@@ -16,23 +16,23 @@ and open the template in the editor.
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css" />
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   <!-- Styles -->
-  <Link rel="stylesheet" href="./React/styles.css"/>
-  <Link rel="stylesheet" href="./React/Components/Home/Home.css"/>
-  <Link rel="stylesheet" href="./React/Components/NavBar/NavBar.css"/>
-  <Link rel="stylesheet" href="./React/Components/AdminUser/AdminUser.css"/>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"/>
-  <Link rel="stylesheet" href="./libraries/sweetalert2.min.css"/>
-
+  <Link rel="stylesheet" href="./React/styles.css" />
+  <Link rel="stylesheet" href="./React/Components/Home/Home.css" />
+  <Link rel="stylesheet" href="./React/Components/NavBar/NavBar.css" />
+  <Link rel="stylesheet" href="./React/Components/AdminUser/AdminUser.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <Link rel="stylesheet" href="./libraries/sweetalert2.min.css" />
   <script src="libraries/react16.8.1.min.js"></script>
   <script src="libraries/react16.8.1-dom.min.js"></script>
-  
+
   <script src="libraries/react4.3.0-router-dom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-file-viewer@1.1.0/dist/index.min.js"></script>
 
   <script charset="utf-8" src="libraries/babel6.26.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="libraries/sweetalert2.all.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2-react-content@1.1.0/dist/sweetalert2-react-content.umd.min.js"></script>
-
+  <script
+    src="https://cdn.jsdelivr.net/npm/sweetalert2-react-content@1.1.0/dist/sweetalert2-react-content.umd.min.js"></script>
   <!-- Components -->
   <script src="React/Components/Home/Home.js" type="text/babel"></script>
   <script src="React/Components/AdminUser/AdminUser.js" type="text/babel"></script>

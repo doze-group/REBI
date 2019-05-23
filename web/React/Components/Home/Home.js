@@ -1,7 +1,7 @@
 const { Component } = React;
 
 function Home(props) {
-    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', 'Cultura', 'Turismo']
+    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', 'Cultura', 'Turismo'];
     return (
         <div class="hero is-fullheight">
             <div class="hero-head">
@@ -27,8 +27,9 @@ function Home(props) {
                                 </div>
                                 {
                                     Cate.map((item, i) => {
+                                        var valid = i == (Cate.length - 1);
                                         return (
-                                            <a class="panel-block is-active">
+                                            <a class="panel-block is-active" style={{ borderBottomLeftRadius: valid ? '10px' : null, borderBottomRightRadius: valid ? '10px' : null, }}>
                                                 <span class="panel-icon">
                                                     <i class="fas fa-book" aria-hidden="true"></i>
                                                 </span>

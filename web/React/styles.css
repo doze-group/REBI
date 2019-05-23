@@ -15,6 +15,10 @@ body, html {
     padding-bottom: 20px;
 }
 
+.tabs {
+    border-bottom: 1px solid rgb(219, 219, 219);
+}
+
 .Files {
     max-height: calc(88vh - 5.5rem);
     height: calc(88vh - 5.5rem);
@@ -23,6 +27,16 @@ body, html {
 .User {
     max-height: calc(92vh - 5.5rem);
     height: calc(92vh - 5.5rem);
+}
+
+.Profile {
+    max-height: calc(90vh - 3.25rem);
+    height: calc(90vh - 3.25rem);
+}
+
+.tabs-content {
+    max-height: calc(83vh - 5.25rem);
+    height: calc(83vh - 5.25rem);
 }
 
 table {
@@ -65,6 +79,13 @@ table {
     -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0 10px;
     -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
     box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    border-color: white;
+}
+
+.CardTable {
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
 }
 
 .is-horizontal-center {

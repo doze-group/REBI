@@ -7,9 +7,9 @@ function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route exact path="/Login" component={Login} />
         <Route exact path="/Home" component={Home} />
         <Route exact path="/File/:id" component={FileId} />
+        {User == null ? <Route exact path="/Login" component={Login}></Route> : null}
         {User != null ? <Route exact path="/Profile" component={Profile}></Route> : null}
         {User != null ? <Route exact path="/Files" component={Files}></Route> : null}
         {User != null && User.role == 'admin' ? <Route exact path="/AdminUser" component={AdminUser} /> : null}
