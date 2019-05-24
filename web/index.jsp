@@ -26,7 +26,6 @@ and open the template in the editor.
   <script src="libraries/react16.8.1-dom.min.js"></script>
 
   <script src="libraries/react4.3.0-router-dom.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-file-viewer@1.1.0/dist/index.min.js"></script>
 
   <script charset="utf-8" src="libraries/babel6.26.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -44,6 +43,7 @@ and open the template in the editor.
   <script src="React/Components/Files/Files.js" type="text/babel"></script>
   <script src="React/Components/Profile/Profile.js" type="text/babel"></script>
   <script src="React/Components/FileId/FileId.js" type="text/babel"></script>
+  <script src="React/Components/ListMedia/ListMedia.js" type="text/babel"></script>
 
   <script src="React/Services/UserService.js" type="text/babel"></script>
   <script src="React/Utils/UserUtil.js" type="text/babel"></script>
