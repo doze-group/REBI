@@ -1,6 +1,7 @@
 const { Component } = React;
 
 function Home(props) {
+    const { LastAdd, Search, SearchA } = Messages();
     var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', 'Cultura', 'Turismo'];
     return (
         <div class="hero is-fullheight">
@@ -12,7 +13,7 @@ function Home(props) {
                     <div class="column is-3 is-hidden-mobile" style={{ height: '84.5%' }}>
                         <div class="card has-text-centered is-fullwidth" >
                             <nav class="panel is-paddingless">
-                                <p class="panel-heading gradient has-text-white">Categorias</p>
+                                <p class="panel-heading gradient has-text-white">{SearchA}</p>
                                 <div class="panel-block">
                                     <div class="field has-addons">
                                         <div class="control">
@@ -20,8 +21,8 @@ function Home(props) {
                                         </div>
                                         <div class="control">
                                             <a class="button is-info">
-                                                Buscar
-                                    </a>
+                                                {Search}
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +43,7 @@ function Home(props) {
                         </div>
                     </div>
                     <div class="column is-fullheight Scroll User">
-                        <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>Ultimos Añadidos</p>
+                        <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>{LastAdd}</p>
                         <ListMedia Array={Cate} />
                     </div>
                 </div>

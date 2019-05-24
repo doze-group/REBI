@@ -3,6 +3,7 @@ const { Component } = React;
 function FileId(props) {
 
   const [Load, setLoad] = useState(true);
+  const { FileDownload, View } = Messages();
 
   return (
     <div class="hero is-fullheight">
@@ -30,13 +31,13 @@ function FileId(props) {
                       <span class="icon">
                         <i class="fas fa-download" aria-hidden="true"></i>
                       </span>
-                      Descargar
+                      {FileDownload}
                     </a>
                   </footer>
                 </div>
               </div>
               <div class="column User Scroll">
-                <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>Vista Previa</p>
+                <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>{View}</p>
                 <iframe src="https://docs.google.com/viewerng/viewer?url=https://www.fdi.ucm.es/profesor/luis/fp/FP01.pptx&embedded=true" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
               </div>
             </div>

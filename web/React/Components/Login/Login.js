@@ -2,6 +2,8 @@ const { Component } = React;
 
 function Login(props) {
 
+    const { LoginTitle } = Messages();
+
     function Submit() {
         document.getElementById('login').classList.add('is-loading');
         setTimeout(function () {
@@ -56,7 +58,7 @@ function Login(props) {
                                                         <span class="icon is-small">
                                                             <i class="fas fa-sign-in-alt"></i>
                                                         </span>
-                                                        <span>Login</span>
+                                                        <span>{LoginTitle}</span>
                                                     </button>
                                                 </p>
                                             </div>
