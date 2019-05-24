@@ -6,6 +6,7 @@ function AdminUser(props) {
     const [Update, setUpdate] = useState(false);
     const [Init, setInit] = useState(true)
     const [Users, setUsers] = useState([]);
+    const { UserTitle, Search, UserHead } = Messages();
     const initUser = {
         id_db: null,
         password: '',
@@ -79,16 +80,6 @@ function AdminUser(props) {
         });
     }
 
-    var Items = <tr>
-        <th class="has-text-centered">Nombre</th>
-        <th class="has-text-centered">Email</th>
-        <th class="has-text-centered">Id Institucional</th>
-        <th class="has-text-centered">Id Ciudadania</th>
-        <th class="has-text-centered">Rol</th>
-        <th class="has-text-centered">Contraseña</th>
-        <th class="has-text-centered">Acciones</th>
-    </tr>
-
     if (Load) {
         return (
             <div class="hero is-fullheight">
@@ -104,8 +95,8 @@ function AdminUser(props) {
                                 </div>
                                 <div class="control">
                                     <a class="button is-info">
-                                        Buscar
-                                </a>
+                                        {Search}
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -113,11 +104,17 @@ function AdminUser(props) {
                             <div class="card CardTable">
                                 <div class="card-content is-paddingless">
                                     <header class="card-header gradient">
-                                        <p class="card-header-title has-text-white is-horizontal-center">Usuarios</p>
+                                        <p class="card-header-title has-text-white is-horizontal-center">{UserTitle}</p>
                                     </header>
                                     <table class="table is-fullwidth">
                                         <thead>
-                                            {Items}
+                                            {
+                                                UserHead.map((item, i) => {
+                                                    return (
+                                                        <th class="has-text-centered">{item}</th>
+                                                    )
+                                                })
+                                            }
                                         </thead>
                                         <tbody>
                                             {

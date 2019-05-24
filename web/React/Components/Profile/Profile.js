@@ -3,6 +3,7 @@ const { Component } = React;
 function Profile(props) {
     const User = JSON.parse(localStorage.getItem('User'));
     const [Load, setLoad] = useState(true);
+    const { EditProfile, Activity, Download, Favorites } = Messages();
 
     function ChartCanvas() {
         var ctx = document.getElementById('Chart').getContext('2d');
@@ -70,7 +71,7 @@ function Profile(props) {
                                     </div>
                                 </div>
                                 <footer class="card-footer">
-                                    <a class="card-footer-item" onClick={ChartCanvas}>Ediitar perfil</a>
+                                    <a class="card-footer-item" onClick={ChartCanvas}>{EditProfile}</a>
                                 </footer>
                             </div>
                         </div>
@@ -80,19 +81,19 @@ function Profile(props) {
                                     <li class="is-active" onClick={() => TabsActive('Downloads', ['Favorites', 'Activity'])} id="Downloads">
                                         <a>
                                             <span class="icon is-small"><i class="fas fa-download" aria-hidden="true"></i></span>
-                                            <span>Descargados</span>
+                                            <span>{Download}</span>
                                         </a>
                                     </li>
                                     <li class="" onClick={() => TabsActive('Favorites', ['Downloads', 'Activity'])} id="Favorites">
                                         <a>
                                             <span class="icon is-small"><i class="fas fa-heart" aria-hidden="true"></i></span>
-                                            <span>Favoritos</span>
+                                            <span>{Favorites}</span>
                                         </a>
                                     </li>
                                     <li class="" onClick={() => TabsActive('Activity', ['Favorites', 'Downloads'])} id="Activity">
                                         <a>
                                             <span class="icon is-small"><i class="fas fa-chart-line" aria-hidden="true"></i></span>
-                                            <span>Actividad</span>
+                                            <span>{Activity}</span>
                                         </a>
                                     </li>
                                 </ul>
