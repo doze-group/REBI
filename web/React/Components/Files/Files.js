@@ -4,13 +4,7 @@ function Files(props) {
 
     const [Documents, setDocuments] = useState([{ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], }]);
     const [Load, setLoad] = useState(true);
-
-    var Items = <tr>
-        <th class="has-text-centered">Titulo</th>
-        <th class="has-text-centered">Descripción</th>
-        <th class="has-text-centered">Tags</th>
-        <th class="has-text-centered">Acciones</th>
-    </tr>
+    const { DocumentsTitle, Search, DocumentsHead } = Messages();
 
     function Form() {
         const MySwal = sweetalert2ReactContent(Swal)
@@ -42,20 +36,26 @@ function Files(props) {
                                 </div>
                                 <div class="control">
                                     <a class="button is-info">
-                                        Buscar
-                            </a>
+                                        {Search}
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="row Scroll Files" style={{ paddingTop: '10px' }}>
                             <div class="card CardTable">
                                 <header class="card-header gradient">
-                                    <p class="card-header-title has-text-white is-horizontal-center">Documentos</p>
+                                    <p class="card-header-title has-text-white is-horizontal-center">{DocumentsTitle}</p>
                                 </header>
                                 <div class="card-content is-paddingless">
                                     <table class="table is-fullwidth">
                                         <thead>
-                                            {Items}
+                                            {
+                                                DocumentsHead.map((item, i) => {
+                                                    return (
+                                                        <th class="has-text-centered">{item}</th>
+                                                    )
+                                                })
+                                            }
                                         </thead>
                                         <tbody>
                                             {

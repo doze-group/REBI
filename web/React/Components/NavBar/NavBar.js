@@ -3,12 +3,13 @@ const { Component } = React;
 function NavBar(props) {
 
     const User = JSON.parse(localStorage.getItem('User'));
+    const { LoginTitle } = Messages();
 
     return (
         <nav class="navbar level">
             <div class="level-left Logo">
                 <a class="level-item" onClick={() => props.props.history.push('/Home')}>
-                    <img src="./React/Images/Logo.png" alt="Logo"/>
+                    <img src="./React/Images/Logo.png" alt="Logo" />
                 </a>
             </div>
             <div class="level-right">
@@ -36,7 +37,7 @@ function NavBar(props) {
                             <span class="icon is-small">
                                 <i class="fas fa-sign-in-alt"></i>
                             </span>
-                            <span>Login</span>
+                            <span>{LoginTitle}</span>
                         </button>}
                 </div>
             </div>

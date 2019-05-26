@@ -47,6 +47,7 @@ and open the template in the editor.
 
   <script src="React/Services/UserService.js" type="text/babel"></script>
   <script src="React/Utils/UserUtil.js" type="text/babel"></script>
+  <script src="React/Utils/MessagesUtil.js" type="text/babel"></script>
 
   <script src="React/App.js" type="text/babel"></script>
   <script src="React/Index.js" type="text/babel"></script>
