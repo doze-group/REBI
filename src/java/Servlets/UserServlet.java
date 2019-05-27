@@ -44,38 +44,53 @@ public class UserServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
         String type = "";
         Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+        String ExcpMessage = "debe enviar el parametro"
+                + " ?type=getall"
+                + " | ?type=getbyId&id=exampleid"
+                + " | ?type=login&email=a@a.com&password=###";
         try {
             type = req.getParameter("type");
             switch (type) {
                 case "getall": {
-                    String UserListJson = prettyGson.toJson(userController.GetUsers());
+                    String UserListJson = prettyGson
+                            .toJson(userController.GetUsers());
                     out.print(UserListJson);
                     break;
                 }
                 case "getbyId": {
                     Gson gson = new Gson();
                     String id = req.getParameter("id");
-                    String userJson = gson.toJson(new Object[]{"Esto debe ser Desarrollado", 200});
+                    String userJson = gson.toJson(new Object[]{"Esto debe ser "
+                        + "Desarrollado", 200});
                     out.print(userJson);
                     break;
                 }
                 case "login": {
-                    prettyGson = new GsonBuilder().setPrettyPrinting().create();
+                    prettyGson = new GsonBuilder()
+                            .setPrettyPrinting().create();
                     Gson gson = new Gson();
                     String email = req.getParameter("email");
-                    String password = req.getParameter("password");                    
-                    String res_1 = prettyGson.toJson(userController.LoginUser(new User("", email, password, "", "")));                    
+                    String password = req.getParameter("password");
+                    String res_1 = prettyGson.toJson(userController
+                            .LoginUser(new User("", email, password, "", "")));
                     out.print(res_1);
+                    if (res_1 == null){
+                        throw new Exception("Datos erroneos");
+                    }
                     break;
                 }
                 default:
-                    String UserListJson = prettyGson.toJson(new Object[]{"debe enviar el parametro ?type=getall or ?type=getbyId&id=exampleid", 200});
+                    String UserListJson = prettyGson
+                            .toJson(
+                                    new Object[]{ExcpMessage,
+                                        200});
                     out.print(UserListJson);
                     break;
             }
         } catch (Exception e) {
 
-            String UserListJson = prettyGson.toJson(new Object[]{"debe enviar el parametro ?type=getall or ?type=getbyId&id=exampleid", 200});
+            String UserListJson = prettyGson
+                    .toJson(new Object[]{ExcpMessage, 200});
             out.print(UserListJson);
         }
 
@@ -108,7 +123,8 @@ public class UserServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse res)
+            throws ServletException, IOException {
         PrintWriter out = res.getWriter();
         res.setContentType("application/json");
         Gson gson = new Gson();
@@ -150,7 +166,8 @@ public class UserServlet extends HttpServlet {
                 sb.append(body);
             }
 
-            JsonObject jobj = new Gson().fromJson(sb.toString(), JsonObject.class);
+            JsonObject jobj = new Gson()
+                    .fromJson(sb.toString(), JsonObject.class);
 
             String result = jobj.get("id").toString();
             System.out.println(result);
