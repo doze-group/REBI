@@ -26,5 +26,5 @@ REM tambien en la fecha se puede usar el %date%
 git commit -m "[%gituser%] [%datestr%] %commit% "
 git push origin master
 :: heroku plugins:install heroku-cli-deploy
-::heroku war:deploy dist/REBI-TC.war --app java-tomcat
+:: heroku war:deploy dist/REBI-TC.war --app java-tomcat
 pause

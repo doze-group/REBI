@@ -67,7 +67,7 @@ public class UserController {
                 String role = rs.getString("role");
 
                 System.out.println(nombre);
-                User p1 = new User(nombre, password, email, id_institucional, id_ciudadania);
+                User p1 = new User(nombre, email, password, id_institucional, id_ciudadania);
                 p1.setId_db(id_db);
                 p1.setRole(role);
 
