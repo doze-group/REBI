@@ -44,6 +44,7 @@ public class UserServlet extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
         String type = "";
         Gson prettyGson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new Gson();
         String ExcpMessage = "debe enviar el parametro"
                 + " ?type=getall"
                 + " | ?type=getbyId&id=exampleid"
@@ -58,7 +59,7 @@ public class UserServlet extends HttpServlet {
                     break;
                 }
                 case "getbyId": {
-                    Gson gson = new Gson();
+
                     String id = req.getParameter("id");
                     String userJson = gson.toJson(new Object[]{"Esto debe ser "
                         + "Desarrollado", 200});
@@ -68,13 +69,13 @@ public class UserServlet extends HttpServlet {
                 case "login": {
                     prettyGson = new GsonBuilder()
                             .setPrettyPrinting().create();
-                    Gson gson = new Gson();
+
                     String email = req.getParameter("email");
                     String password = req.getParameter("password");
                     String res_1 = prettyGson.toJson(userController
                             .LoginUser(new User("", email, password, "", "")));
                     out.print(res_1);
-                    if (res_1 == null){
+                    if (res_1 == null) {
                         throw new Exception("Datos erroneos");
                     }
                     break;
@@ -87,11 +88,12 @@ public class UserServlet extends HttpServlet {
                     out.print(UserListJson);
                     break;
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
 
-            String UserListJson = prettyGson
-                    .toJson(new Object[]{ExcpMessage, 200});
-            out.print(UserListJson);
+//            String UserListJson = prettyGson
+//                    .toJson(new Object[]{ExcpMessage, 200});
+//            out.print(UserListJson);
+            out.print(gson.toJson(jsres("err", ExcpMessage)));
         }
 
     }
@@ -102,7 +104,6 @@ public class UserServlet extends HttpServlet {
         PrintWriter out = res.getWriter();
         res.setContentType("application/json");
         Gson gson = new Gson();
-
         try {
 
             StringBuilder sb = new StringBuilder();
@@ -113,11 +114,11 @@ public class UserServlet extends HttpServlet {
 
             User user = (User) gson.fromJson(sb.toString(), User.class);
             userController.AddUser(user);
-            String userJson = gson.toJson(user);
-            out.print(userJson);
+            out.print(sb.toString());
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            out.print(gson.toJson(jsres("err", ex.toString())));
         }
 
     }
@@ -144,7 +145,9 @@ public class UserServlet extends HttpServlet {
             out.print(userJson);
 
         } catch (Exception ex) {
+
             ex.printStackTrace();
+            out.print(gson.toJson(jsres("err", ex.toString())));
         }
 
         //To change body of generated methods, choose Tools | Templates.
@@ -153,7 +156,6 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-
         PrintWriter out = res.getWriter();
         res.setContentType("application/json");
         Gson gson = new Gson();
@@ -169,16 +171,11 @@ public class UserServlet extends HttpServlet {
             JsonObject jobj = new Gson()
                     .fromJson(sb.toString(), JsonObject.class);
 
-            String result = jobj.get("id").toString();
-            System.out.println(result);
-            try {
-                userController.DeleteUser(result);
-            } catch (Exception ex) {
-                out.print(gson.toJson(jsres("err", ex.toString())));
-            }
+            String result = req.getParameter("id");
 
-            out.print(result);
+            userController.DeleteUser(result);
 
+            out.print(gson.toJson(jsres("data", "OK")));
             // Product product = (Product) gson.fromJson(sb.toString(), Product.class);
             //productController.DeleteProduct(body);
             //String productJson = gson.toJson(product);

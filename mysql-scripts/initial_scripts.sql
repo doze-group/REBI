@@ -1,6 +1,6 @@
-create database if not exists rebi_tc;
+#create database if not exists rebi_tc;
 
-use rebi_tc;
+#use rebi_tc;
 
 /*
  private int Id;
@@ -28,6 +28,8 @@ role VARCHAR(30)
 select * from usuarios;
 
 truncate table usuarios;
+
+
 /*
 Product product2 = new Product(2, "Queso Campesino Alpina", "https://images.rappi.com/products/599875-1534181942.png?d=150x150&e=webp", 5850);
 Product product3 = new Product(3, "Jamon de Cerdo Pietran", "https://images.rappi.com/products/342208-1532483068.png?d=150x150&e=webp", 7050);

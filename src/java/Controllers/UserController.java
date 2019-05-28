@@ -20,13 +20,24 @@ import java.util.ArrayList;
  */
 public class UserController {
 
-    private Connection connection = DaoUtil.getConnection();
     PreparedStatement ps;
 
     public ArrayList<User> GetUsers() {
         ArrayList<User> Users = new ArrayList<>();
         GetMySQL(Users);
         return Users;
+    }
+
+    public void getUsersByFilter() {
+
+    }
+
+    public void getUserByFilter() {
+
+    }
+
+    public void getUserById() {
+
     }
 
     public User LoginUser(User user) {
@@ -37,7 +48,7 @@ public class UserController {
         postMySQL(user);
     }
 
-    public void DeleteUser(String id) {
+    public void DeleteUser(String id) throws Exception {
         deleteMySQL(id);
     }
 
@@ -50,7 +61,7 @@ public class UserController {
             String query = "SELECT * FROM usuarios";
 
             // create the java statement
-            Statement st = connection.createStatement();
+            Statement st = DaoUtil.getConnection().createStatement();
 
             // execute the query, and get a java resultset
             ResultSet rs = st.executeQuery(query);
@@ -73,7 +84,7 @@ public class UserController {
 
                 arr.add(p1);
             }
-            st.close();
+
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             System.err.println(e);
         } catch (java.sql.SQLSyntaxErrorException e) {
@@ -92,12 +103,13 @@ public class UserController {
     protected void postMySQL(User user) {
         try {
 
-            String TblParams = "nombre, password, email, id_ciudadania, id_institucional, role ";
-            ps = connection
-                    .prepareStatement("insert into "
-                            + "rebi_tc.usuarios(" + TblParams + ")"
-                            + " values "
-                            + "(" + DaoUtil.Fields_Query(TblParams) + ");"
+            String TblParams = "nombre, password,"
+                    + " email, id_ciudadania, id_institucional, role ";
+            ps = DaoUtil.getConnection()
+                    .prepareStatement(
+                            "call createUser("
+                            + DaoUtil.Fields_Query(TblParams)
+                            + ");"
                     );
             // Parameters start with 1
             ps.setString(1, user.getNombre());
@@ -122,41 +134,47 @@ public class UserController {
         }
     }
 
-    protected void deleteMySQL(String id) {
+    protected void deleteMySQL(String id) throws Exception {
+
         try {
-            ps = connection.prepareStatement("delete from rebi_tc.usuarios where id=?");
+            ps = DaoUtil.getConnection().prepareStatement("delete from usuarios where id=?");
             ps.setString(1, id);
             int i = ps.executeUpdate();
             if (i != 0) {
                 System.out.println("deleted");
             } else {
-                System.out.println("not deleted");
+                throw new Exception();
             }
+
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             System.err.println(e);
+            e.printStackTrace();
         } catch (java.sql.SQLSyntaxErrorException e) {
             System.err.println(e);
             e.printStackTrace();
         } catch (SQLException e) {
             System.err.println(e);
             e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println(e);
-            e.printStackTrace();
         }
     }
 
     protected void updateMySQL(User newUser) {
+
         try {
-            ps = connection.prepareStatement("update rebi_tc.usuarios set "
-                    + "nombre=?, password=?, email=?, id_ciudadania=?, id_institucional=?, role=? where id=?");
+            String TblParams = "nombre, password,"
+                    + " email, id_ciudadania, id_institucional, role, id ";
+            ps = DaoUtil.getConnection().prepareStatement(
+                    "call editUser("
+                    + DaoUtil.Fields_Query(TblParams)
+                    + ");"
+            );
+
             ps.setString(1, newUser.getNombre());
             ps.setString(2, newUser.getPassword());
             ps.setString(3, newUser.getEmail());
             ps.setString(4, newUser.getId_ciudadania());
             ps.setString(5, newUser.getId_institucional());
             ps.setString(6, newUser.getRole());
-
             ps.setInt(7, newUser.getId_db());
 
             int i = ps.executeUpdate();
@@ -182,7 +200,7 @@ public class UserController {
     protected User logingMySQL(User user) {
         User result_user = null;
         try {
-            ps = connection.prepareStatement("Select * from usuarios where (password=? and email=?); ");
+            ps = DaoUtil.getConnection().prepareStatement("Select * from usuarios where (password=? and email=?); ");
             System.out.println(" " + user.getPassword() + "  " + user.getEmail());
             ps.setString(1, user.getPassword());
             ps.setString(2, user.getEmail());
