@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * @author Rober19
  */
 public class UserController {
-    
+
     PreparedStatement ps;
 
     public ArrayList<User> GetUsers() {
@@ -84,7 +84,7 @@ public class UserController {
 
                 arr.add(p1);
             }
-           
+
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             System.err.println(e);
         } catch (java.sql.SQLSyntaxErrorException e) {
@@ -103,10 +103,13 @@ public class UserController {
     protected void postMySQL(User user) {
         try {
 
-            String TblParams = "nombre, password, email, id_ciudadania, id_institucional, role ";
+            String TblParams = "nombre, password,"
+                    + " email, id_ciudadania, id_institucional, role ";
             ps = DaoUtil.getConnection()
                     .prepareStatement(
-                            "call createUser(" + DaoUtil.Fields_Query(TblParams) + ");"
+                            "call createUser("
+                            + DaoUtil.Fields_Query(TblParams)
+                            + ");"
                     );
             // Parameters start with 1
             ps.setString(1, user.getNombre());
@@ -132,17 +135,17 @@ public class UserController {
     }
 
     protected void deleteMySQL(String id) throws Exception {
-       
+
         try {
             ps = DaoUtil.getConnection().prepareStatement("delete from usuarios where id=?");
             ps.setString(1, id);
             int i = ps.executeUpdate();
             if (i != 0) {
-                 System.out.println("deleted");
+                System.out.println("deleted");
             } else {
                 throw new Exception();
             }
-           
+
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
             System.err.println(e);
             e.printStackTrace();
@@ -152,20 +155,26 @@ public class UserController {
         } catch (SQLException e) {
             System.err.println(e);
             e.printStackTrace();
-        }        
+        }
     }
 
     protected void updateMySQL(User newUser) {
+
         try {
-            ps = DaoUtil.getConnection().prepareStatement("update usuarios set "
-                    + "nombre=?, password=?, email=?, id_ciudadania=?, id_institucional=?, role=? where id=?");
+            String TblParams = "nombre, password,"
+                    + " email, id_ciudadania, id_institucional, role, id ";
+            ps = DaoUtil.getConnection().prepareStatement(
+                    "call editUser("
+                    + DaoUtil.Fields_Query(TblParams)
+                    + ");"
+            );
+
             ps.setString(1, newUser.getNombre());
             ps.setString(2, newUser.getPassword());
             ps.setString(3, newUser.getEmail());
             ps.setString(4, newUser.getId_ciudadania());
             ps.setString(5, newUser.getId_institucional());
             ps.setString(6, newUser.getRole());
-
             ps.setInt(7, newUser.getId_db());
 
             int i = ps.executeUpdate();
