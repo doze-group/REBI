@@ -1,6 +1,6 @@
-create database if not exists rebi_tc;
+#create database if not exists rebi_tc;
 
-use rebi_tc;
+#use rebi_tc;
 
 /*
  private int Id;

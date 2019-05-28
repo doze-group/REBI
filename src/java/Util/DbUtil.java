@@ -15,13 +15,11 @@ public class DbUtil {
             try {
                 
                 String driver = "com.mysql.jdbc.Driver";
-                String url = "jdbc:mysql://wp433upk59nnhpoh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/q63uh3tx9w6svnjt";
-                //        + "?autoReconnect=true&useSSL=false&useJDBCCompliantTimezoneShift=true&"
-                //        + "useLegacyDatetimeCode=false&serverTimezone=UTC";
-                String user = "j9qdmayrxsv4wu36";
-                String password = "naxw26s3k8hac189";
-
-                System.out.print(user);
+                String url = "jdbc:mysql://arfo8ynm6olw6vpn.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/n28y965z4bkv05va"
+                        + "?autoReconnect=true&useSSL=false&useJDBCCompliantTimezoneShift=true&"
+                        + "useLegacyDatetimeCode=false&serverTimezone=UTC";
+                String user = "tke5gln74bqrmlzj";
+                String password = "z2q9ddghsygdhobe";           
                 
                 Class.forName(driver);
                 connection = DriverManager.getConnection(url, user, password);
