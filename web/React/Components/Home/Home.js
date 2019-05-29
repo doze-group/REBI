@@ -1,8 +1,7 @@
 const { Component } = React;
 
 function Home(props) {
-    const { LastAdd, Search, SearchA } = Messages();
-    var Cate = ['Ciencias', 'Tecnología', 'Economía', 'Humanidad', 'Naturaleza', 'Cultura', 'Turismo'];
+    const { LastAdd, Search, SearchA, SerachOpc } = Messages();
     return (
         <div class="hero is-fullheight">
             <div class="hero-head">
@@ -27,8 +26,8 @@ function Home(props) {
                                     </div>
                                 </div>
                                 {
-                                    Cate.map((item, i) => {
-                                        var valid = i == (Cate.length - 1);
+                                    SerachOpc.map((item, i) => {
+                                        var valid = i == (SerachOpc.length - 1);
                                         return (
                                             <a class="panel-block is-active" style={{ borderBottomLeftRadius: valid ? '10px' : null, borderBottomRightRadius: valid ? '10px' : null, }}>
                                                 <span class="panel-icon">
@@ -44,7 +43,7 @@ function Home(props) {
                     </div>
                     <div class="column is-fullheight Scroll User">
                         <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>{LastAdd}</p>
-                        <ListMedia Array={Cate} />
+                        <ListMedia Array={SerachOpc} />
                     </div>
                 </div>
             </div>

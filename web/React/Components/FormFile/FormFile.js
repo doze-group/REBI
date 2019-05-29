@@ -3,11 +3,16 @@ const { Component, useState } = React;
 function FormFile(props) {
 
     const [Tags, setTags] = useState([]);
-    const [File, setFile] = useState({ name: '' })
+    const [File, setFile] = useState({ name: '' });
+    const { SerachOpc, Add, SearchFile, UploadFile } = Messages();
+    const User = JSON.parse(localStorage.getItem('User'));
 
     function Submit() {
-        if(Tags.length <= 0){
+        if (Tags.length <= 0) {
             document.getElementById('tag').className += ' is-danger';
+        } else {
+            console.log(File);
+            CopyFile(User.id_ciudadania, File);
         }
     }
 
@@ -42,13 +47,31 @@ function FormFile(props) {
                     <textarea class="textarea" placeholder="Descripción del documento"></textarea>
                 </div>
             </div>
-            <div class="field has-addons">
-                <div class="control">
+            <div class="field">
+                <div class="control has-icons-left">
+                    <div class="select is-fullwidth">
+                        <select required>
+                            {
+                                SerachOpc.map((item, i) => {
+                                    return (
+                                        <option value={item}>{item}</option>
+                                    )
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-filter"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="field has-addons is-fullwidth">
+                <div class="control is-fullwidth" style={{ width: '100%' }}>
                     <input class="input" type="text" placeholder="Tag" id="tag" />
                 </div>
                 <div class="control">
                     <a class="button is-info" onClick={AddTag.bind(this)}>
-                        Agregar
+                        {Add}
                     </a>
                 </div>
             </div>
@@ -72,13 +95,13 @@ function FormFile(props) {
                 <div class="control">
                     <div class="file has-name is-boxed is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required accept=".xlsx, .xls, .doc, .docx, .ppt, .pptx, .pdf"/>
+                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required accept=".xlsx, .xls, .doc, .docx, .ppt, .pptx, .pdf" />
                             <span class="file-cta has-text-centered">
                                 <span class="file-icon">
                                     <i class="fas fa-upload"></i>
                                 </span>
                                 <span class="file-label">
-                                    Buscar Archivo
+                                    {SearchFile}
                                 </span>
                             </span>
                             <span class="file-name has-text-centered">
@@ -90,7 +113,7 @@ function FormFile(props) {
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button is-success is-fullwidth" type="submit">Subir Documento</button>
+                    <button class="button is-info is-fullwidth" type="submit">{UploadFile}</button>
                 </p>
             </div>
         </form>

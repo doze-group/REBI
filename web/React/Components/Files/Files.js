@@ -14,11 +14,6 @@ function Files(props) {
             showCloseButton: true,
             showConfirmButton: false
         });
-        var temp = [];
-        for (let index = 0; index < 100; index++) {
-            temp.push({ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], });
-        }
-        setDocuments(temp);
     }
 
     if (Load) {
@@ -69,7 +64,7 @@ function Files(props) {
                                                                     {
                                                                         Item.tags.map((item, i) => {
                                                                             return (
-                                                                                <span class="tag is-success">
+                                                                                <span class="tag is-info">
                                                                                     {item}
                                                                                 </span>
                                                                             )
@@ -79,7 +74,7 @@ function Files(props) {
                                                             </td>
                                                             <td class="has-text-centered">
                                                                 <div class="buttons has-text-centered is-horizontal-center">
-                                                                    <a class="button is-primary is-outlined">
+                                                                    <a class="button is-info is-outlined">
                                                                         <span class="icon">
                                                                             <i class="fas fa-file-signature"></i>
                                                                         </span>
@@ -102,7 +97,7 @@ function Files(props) {
                         </div>
                     </div>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
+                <a class="button is-info float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
             </div>
         );
     } else {

@@ -48,14 +48,7 @@ function UpdateUser(User) {
 }
 
 function LoginUser(email, password) {
-    var log = false;
-    for (let index = 0; index < Users.length; index++) {
-        if (Users[index].email == email && Users[index].password == password) {
-            localStorage.setItem('User', JSON.stringify(Users[index]));
-            return true;
-        }
-    }
-    return log;
+    return http_get('api/user?type=login&email=' + email + '&password=' + password);
 }
 
 function Logout() {

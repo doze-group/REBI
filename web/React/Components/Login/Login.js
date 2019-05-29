@@ -2,22 +2,21 @@ const { Component } = React;
 
 function Login(props) {
 
-    const { LoginTitle } = Messages();
+    const { LoginTitle, LoginTitleMessageError, LoginMessageError } = Messages();
 
     function Submit() {
         document.getElementById('login').classList.add('is-loading');
-        setTimeout(function () {
-            if (LoginUser(document.getElementById('email').value, document.getElementById('password').value)) {
-                window.location.reload();
-            } else {
-                Swal.fire(
-                    'Error de autenticación',
-                    'Emaial y/o contraseña invalidos',
-                    'error'
-                );
-            }
+        LoginUser(document.getElementById('email').value, document.getElementById('password').value).then(user => {
+            localStorage.setItem('User', JSON.stringify(user));
+            window.location.reload();
+        }).catch(err => {
+            Swal.fire(
+                LoginTitleMessageError,
+                LoginMessageError,
+                'error'
+            );
             document.getElementById('login').classList.remove('is-loading');
-        }, 5000);
+        });
     }
 
     return (
