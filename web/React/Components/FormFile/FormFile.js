@@ -11,8 +11,8 @@ function FormFile(props) {
         if (Tags.length <= 0) {
             document.getElementById('tag').className += ' is-danger';
         } else {
-            console.log(File);
-            CopyFile(User.id_ciudadania, File);
+            props.Action(File);
+            return true;
         }
     }
 
@@ -95,7 +95,7 @@ function FormFile(props) {
                 <div class="control">
                     <div class="file has-name is-boxed is-fullwidth">
                         <label class="file-label">
-                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required accept=".xlsx, .xls, .doc, .docx, .ppt, .pptx, .pdf" />
+                            <input class="file-input" type="file" name="resume" onChange={() => setFile(document.getElementById('file').files[0])} id="file" required accept=".pdf" />
                             <span class="file-cta has-text-centered">
                                 <span class="file-icon">
                                     <i class="fas fa-upload"></i>

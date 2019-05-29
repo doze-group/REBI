@@ -4,7 +4,7 @@ function AdminUser(props) {
 
     const [Load, setLoad] = useState(false);
     const [Update, setUpdate] = useState(false);
-    const [Init, setInit] = useState(true)
+    const [Init, setInit] = useState(true);
     const [Users, setUsers] = useState([]);
     const { UserTitle, Search, UserHead, DeleteTitle, DeleteUserMessage, CreateUserMessage } = Messages();
     const initUser = {
@@ -50,7 +50,8 @@ function AdminUser(props) {
         }).then((result) => {
             if (result.value) {
                 setLoad(false);
-                DeleteUser({ id: User.id_db }).then(user => {
+                DeleteUser(User.id_db).then(user => {
+                    console.log(user);
                     Swal.fire(DeleteUserMessage, '', 'success');
                     setUpdate(true);
                 }).catch(err => {

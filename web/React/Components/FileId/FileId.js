@@ -27,7 +27,7 @@ function FileId(props) {
                     </div>
                   </div>
                   <footer class="card-footer">
-                    <a class="card-footer-item">
+                    <a class="card-footer-item" download href="https://firebasestorage.googleapis.com/v0/b/rober-firebase.appspot.com/o/REBI-TC%2FFILES%2FHklkEIOj64%2F1559098918641?alt=media&token=r114U_s64">
                       <span class="icon">
                         <i class="fas fa-download" aria-hidden="true"></i>
                       </span>
@@ -38,7 +38,7 @@ function FileId(props) {
               </div>
               <div class="column User Scroll">
                 <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>{View}</p>
-                <iframe src="https://docs.google.com/viewerng/viewer?url=https://www.fdi.ucm.es/profesor/luis/fp/FP01.pptx&embedded=true" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
+                <iframe src="https://docs.google.com/gview?url=gs://crud-pearson.appspot.com/REBI-TC_FILES_SJxrmQQ26V_1559143196805.docx" type="application/*" width="100%" class="Profile" allowfullscreen webkitallowfullscreen />
               </div>
             </div>
           </div>

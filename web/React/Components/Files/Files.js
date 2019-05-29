@@ -10,10 +10,20 @@ function Files(props) {
         const MySwal = sweetalert2ReactContent(Swal)
         MySwal.fire({
             title: 'Agregar',
-            html: <FormFile Action={() => console.log('hola')} />,
+            html: <FormFile Action={UploadFile} />,
             showCloseButton: true,
             showConfirmButton: false
         });
+    }
+
+    async function UploadFile(File) {
+        setLoad(false);
+        await Upload(File).then(file => {
+            console.log(file);
+        }).catch(err => {
+            console.log(JSON.parse(err));
+        });
+        setLoad(true);
     }
 
     if (Load) {

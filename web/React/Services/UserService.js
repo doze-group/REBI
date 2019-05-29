@@ -40,7 +40,7 @@ function AddUser(user) {
 }
 
 function DeleteUser(Id) {
-    return http_delete('api/user', Id);
+    return http_delete('api/user?id='+Id);
 }
 
 function UpdateUser(User) {
