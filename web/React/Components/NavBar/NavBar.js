@@ -62,11 +62,6 @@ function SelectBox(props) {
             Icon: 'fa-home',
             Function: () => props.history.push('/Home')
         },
-        {
-            Title: 'Configuración',
-            Icon: 'fa-cogs',
-            Function: () => { }
-        }
     ];
 
     if (JSON.parse(localStorage.getItem('User')).role == 'admin') {

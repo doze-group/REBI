@@ -2,9 +2,12 @@ const { Component, useState } = React;
 
 function Files(props) {
 
-    const [Documents, setDocuments] = useState([{ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], }]);
-    const [Load, setLoad] = useState(true);
-    const { DocumentsTitle, Search, DocumentsHead } = Messages();
+    const [Documents, setDocuments] = useState([]);
+    const { DocumentsTitle, Search, DocumentsHead, DeleteDocumentMessage, UpdateDocumentMessage, CreateDocumentMessage } = Messages();
+    const [Load, setLoad] = useState(false);
+    const [Update, setUpdate] = useState(false);
+    const [Init, setInit] = useState(true);
+    const User = JSON.parse(localStorage.getItem('User'));
 
     function Form() {
         const MySwal = sweetalert2ReactContent(Swal)
@@ -16,12 +19,25 @@ function Files(props) {
         });
     }
 
+    useEffect(() => {
+        if (Update || Init) {
+            getFilesId(User.id_db).then(Data => {
+                setDocuments(Data);
+                setLoad(true);
+            }).catch(err => { setLoad(true); });
+            setUpdate(false);
+        }
+        setInit(false);
+    });
+
+
     async function UploadFile(File) {
         setLoad(false);
         await Upload(File).then(file => {
-            console.log(file);
+            Swal.fire(CreateDocumentMessage, '', 'success');
+            setUpdate(true);
         }).catch(err => {
-            console.log(JSON.parse(err));
+            Swal.fire('Error', err.toString(), 'error');
         });
         setLoad(true);
     }

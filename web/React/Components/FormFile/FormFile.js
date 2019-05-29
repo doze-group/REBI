@@ -11,6 +11,7 @@ function FormFile(props) {
         if (Tags.length <= 0) {
             document.getElementById('tag').className += ' is-danger';
         } else {
+            document.getElementById('upload').classList.add('is-loading');
             props.Action(File);
             return true;
         }
@@ -113,7 +114,7 @@ function FormFile(props) {
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button is-info is-fullwidth" type="submit">{UploadFile}</button>
+                    <button class="button is-info is-fullwidth" type="submit" id="upload">{UploadFile}</button>
                 </p>
             </div>
         </form>

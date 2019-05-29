@@ -7,3 +7,7 @@ function Upload(file) {
 function getFiles() {
     return http_get('https://rebi-tc-upload-service.herokuapp.com/files');
 }
+
+function getFilesId(id) {
+    return http_get('https://rebi-tc-upload-service.herokuapp.com/files');
+}
