@@ -30,7 +30,7 @@ function Profile(props) {
     }
 
     function TabsActive(id, idsHidden) {
-        if(id == 'Activity'){
+        if (id == 'Activity') {
             ChartCanvas();
         }
         ChartCanvas.bind(window)();
@@ -56,9 +56,9 @@ function Profile(props) {
                                 <header class="card-header gradient">
                                     <p class="card-header-title has-text-white is-horizontal-center">{User.nombre}</p>
                                 </header>
-                                <div class="card-image is-vertical-center is-horizontal-center">
+                                <div class="card-image is-vertical-center is-horizontal-center" >
                                     <figure class="image is-128x128">
-                                        <img src={User.img} alt="Placeholder image" onError={(e) => e.target.src = "https://coparmexmetropolitano.mx/themes/websiteV2/uploads/candidatos/alcaldias/jorge-martinez.png"} />
+                                        <img src={User.img} alt="Placeholder image" onError={(e) => e.target.src = "https://coparmexmetropolitano.mx/themes/websiteV2/uploads/candidatos/alcaldias/jorge-martinez.png"} style={{ paddingTop: '10px', }} />
                                     </figure>
                                 </div>
                                 <div class="card-content">

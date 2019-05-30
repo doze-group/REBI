@@ -9,14 +9,13 @@ function Home(props) {
     useEffect(() => {
         if (Update || Init) {
             getFiles().then(Data => {
-                console.log(Data);
                 setFiles(Data);
                 setLoad(true);
             }).catch(err => { setLoad(true); });
             setUpdate(false);
         }
         setInit(false);
-    })
+    });
 
     if (Load) {
         return (
@@ -60,7 +59,7 @@ function Home(props) {
                         </div>
                         <div class="column is-fullheight Scroll User">
                             <p class="border is-size-4 has-text-link" style={{ marginBottom: '10px', }}>{LastAdd}</p>
-                            <ListMedia Array={Files} />
+                            <ListMedia Array={Files} history={props.history}/>
                         </div>
                     </div>
                 </div>

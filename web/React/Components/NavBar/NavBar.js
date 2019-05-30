@@ -47,11 +47,11 @@ function NavBar(props) {
 
 function SelectBox(props) {
     const Items = [
-        {
-            Title: 'Tu Perfil',
-            Icon: 'fa-user-circle',
-            Function: () => props.history.push('/Profile')
-        },
+        /*     {
+                 Title: 'Tu Perfil',
+                 Icon: 'fa-user-circle',
+                 Function: () => props.history.push('/Profile')
+             }, */
         {
             Title: 'Tus Archivos',
             Icon: 'fa-file-archive',
