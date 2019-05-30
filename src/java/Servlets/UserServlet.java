@@ -113,6 +113,9 @@ public class UserServlet extends HttpServlet {
             }
 
             User user = (User) gson.fromJson(sb.toString(), User.class);
+            user.setDescripcion("Aqui puedes poner una pequeña descripción sobre ti"
+                    + "recuerda ser breve y honesto");
+            user.setUbicacion("Cartagena, Colombia");
             userController.AddUser(user);
             out.print(sb.toString());
 
