@@ -17,17 +17,20 @@ function ListMedia(props) {
                                 <div class="media-content">
                                     <div class="content">
                                         <p>
-                                            <a>Este Articulo es de ciencia</a> <small>@Fernando Araujo</small>
+                                            <a onClick={() => props.history.push({
+                                                pathname: 'File/' + item.id_db,
+                                                state: item
+                                            })}>{item.titulo}</a>
                                             <br />
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
-                                    </p>
+                                            {item.descripcion}
+                                        </p>
                                     </div>
                                     <nav class="level is-mobile">
                                         <div class="level-left">
                                             <a class="level-item">
                                                 <span class="icon is-small"><i class="fas fa-reply"></i></span>
                                             </a>
-                                            <a class="level-item">
+                                            <a class="level-item" download href={item.link_download}>
                                                 <span class="icon is-small"><i class="fas fa-download"></i></span>
                                             </a>
                                             <a class="level-item">

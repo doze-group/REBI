@@ -21,7 +21,8 @@ function Files(props) {
 
     useEffect(() => {
         if (Update || Init) {
-            getFilesId(User.id_db).then(Data => {
+            getFilesId(User.id_db, 'getbyUserId').then(Data => {
+                console.log(Data);
                 setDocuments(Data);
                 setLoad(true);
             }).catch(err => { setLoad(true); });
@@ -31,12 +32,24 @@ function Files(props) {
     });
 
 
-    async function UploadFile(File) {
+    async function UploadFile(File, model) {
         setLoad(false);
-        await Upload(File).then(file => {
-            Swal.fire(CreateDocumentMessage, '', 'success');
-            setUpdate(true);
-        }).catch(err => {
+        await Upload(File, User.id_db).then(
+            async function UploadModel(file) {
+                var xd = await file;
+                await toSQL(Object.assign(model, {
+                    id_db_user: User.id_db,
+                    nombre: xd.data.name,
+                    link_view: xd.data.preview_link,
+                    link_download: xd.data.download_link
+                })).then(direct => {
+                    Swal.fire(CreateDocumentMessage, '', 'success');
+                    setUpdate(true);
+                }).catch(err => {
+                    Swal.fire('Error', err.toString(), 'error');
+                });
+            }
+        ).catch(err => {
             Swal.fire('Error', err.toString(), 'error');
         });
         setLoad(true);

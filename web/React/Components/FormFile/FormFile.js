@@ -12,7 +12,12 @@ function FormFile(props) {
             document.getElementById('tag').className += ' is-danger';
         } else {
             document.getElementById('upload').classList.add('is-loading');
-            props.Action(File);
+            props.Action(File, {
+                'titulo': document.getElementById('titulo').value,
+                'descripcion': document.getElementById('descripcion').value,
+                'tags': Tags,
+                'categoria': document.getElementById('categoria').value
+            });
             return true;
         }
     }
@@ -45,13 +50,13 @@ function FormFile(props) {
             </div>
             <div class="field">
                 <div class="control">
-                    <textarea class="textarea" placeholder="Descripción del documento"></textarea>
+                    <textarea class="textarea" placeholder="Descripción del documento" id="descripcion"></textarea>
                 </div>
             </div>
             <div class="field">
                 <div class="control has-icons-left">
                     <div class="select is-fullwidth">
-                        <select required>
+                        <select required id="categoria">
                             {
                                 SerachOpc.map((item, i) => {
                                     return (
@@ -82,7 +87,7 @@ function FormFile(props) {
                         {
                             Tags.map((item, i) => {
                                 return (
-                                    <span class="tag is-success">
+                                    <span class="tag is-info">
                                         {item}
                                         <a class="delete is-small" onClick={RemoveTag.bind(this, i)}></a>
                                     </span>

@@ -27,6 +27,7 @@ function Messages() {
         LoginMessageError: 'Email y/o contraseña invalidos',
         Add: 'Agregar',
         SearchFile: 'Buscar Archivo',
-        UploadFile: 'Subir Documento'
+        UploadFile: 'Subir Documento',
+        UrlTomcat: 'https://java-tomcat.herokuapp.com/'
     }
 }
