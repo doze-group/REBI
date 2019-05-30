@@ -30,6 +30,9 @@ function Profile(props) {
     }
 
     function TabsActive(id, idsHidden) {
+        if(id == 'Activity'){
+            ChartCanvas();
+        }
         ChartCanvas.bind(window)();
         idsHidden.map((item, i) => {
             document.getElementById(item).classList.remove('is-active');
@@ -60,14 +63,11 @@ function Profile(props) {
                                 </div>
                                 <div class="card-content">
                                     <div class="content">
-                                        Como we mi tio esto se altera 4x4 sin tembladera duro pa duro para todas las nenas mi tio por la perimetral
-                                        <br />
-                                        <br />
-                                        <time datetime="2016-1-1">Fecha de creacion: 2016-1-1</time>
+                                        {User.descripcion}
                                         <br />
                                         <br />
                                         <span class="icon is-small"><i class="fas fa-street-view" aria-hidden="true"></i></span>
-                                        Cartagena, Colombia
+                                        {User.ubicacion}
                                     </div>
                                 </div>
                                 <footer class="card-footer">

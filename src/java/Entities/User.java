@@ -20,6 +20,7 @@ public class User {
     private String role = "user";
     private String descripcion;
     private String ubicacion;
+    private String img;
 
     public User(String nombre, String email, String password, String id_institucional, String id_ciudadania) {
         this.nombre = nombre;
@@ -37,6 +38,17 @@ public class User {
         this.id_ciudadania = id_ciudadania;
         this.descripcion = descripcion;
         this.ubicacion = ubicacion;
+    }
+
+    public User(String nombre, String email, String password, String id_institucional, String id_ciudadania, String descripcion, String ubicacion, String img) {
+        this.nombre = nombre;
+        this.email = email;
+        this.password = password;
+        this.id_institucional = id_institucional;
+        this.id_ciudadania = id_ciudadania;
+        this.descripcion = descripcion;
+        this.ubicacion = ubicacion;
+        this.img = img;
     }
     
     public User(int id_db, String nombre, String email, String password, String id_institucional, String id_ciudadania) {
@@ -121,6 +133,14 @@ public class User {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     

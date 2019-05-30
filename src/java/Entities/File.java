@@ -10,6 +10,10 @@ public class File {
     private String nombre;
     private String link_view;
     private String link_download;
+    private String titulo;
+    private String decripcion;
+    private String categoria;
+    private String[] tags;
 
     public File(int id_db, int id_db_user, int descargados, int favoritos, int visto, String nombre, String link_view, String link_download) {
         this.id_db = id_db;
