@@ -11,7 +11,7 @@ function ListMedia(props) {
                             <article class="media">
                                 <figure class="media-left">
                                     <p class="image is-64x64">
-                                        <img src="http://www.iconarchive.com/download/i60041/mattahan/ultrabuuf/Comics-Spiderman-Cam.ico" />
+                                        <img src="https://www.novoprint.es/wp-content/uploads/2019/01/PDF_LOGO.png" />
                                     </p>
                                 </figure>
                                 <div class="media-content">

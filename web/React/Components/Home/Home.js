@@ -9,6 +9,7 @@ function Home(props) {
     useEffect(() => {
         if (Update || Init) {
             getFiles().then(Data => {
+                console.log(Data);
                 setFiles(Data);
                 setLoad(true);
             }).catch(err => { setLoad(true); });
