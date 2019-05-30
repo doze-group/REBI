@@ -28,10 +28,18 @@ public class UserServlet extends HttpServlet {
 
     UserController userController = new UserController();
 
+    private void addCorsHeader(HttpServletResponse response){
+        //TODO: externalize the Allow-Origin
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE, HEAD");
+        response.addHeader("Access-Control-Allow-Headers", "X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept");
+        response.addHeader("Access-Control-Max-Age", "1728000");
+    }
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
-
+        addCorsHeader(res);
 //        PrintWriter out = res.getWriter();
 //        res.setContentType("application/json");
 //        res.setCharacterEncoding("UTF-8");
@@ -101,6 +109,7 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
+         addCorsHeader(res);
         PrintWriter out = res.getWriter();
         res.setContentType("application/json");
         Gson gson = new Gson();
@@ -130,6 +139,7 @@ public class UserServlet extends HttpServlet {
     protected void doPut(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         PrintWriter out = res.getWriter();
+         addCorsHeader(res);
         res.setContentType("application/json");
         Gson gson = new Gson();
 
@@ -159,6 +169,7 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
+         addCorsHeader(res);
         PrintWriter out = res.getWriter();
         res.setContentType("application/json");
         Gson gson = new Gson();
