@@ -22,6 +22,10 @@ public class UserController {
 
     PreparedStatement ps;
 
+    String TblParams = "nombre, password,"
+            + " email, id_ciudadania, id_institucional,"
+            + " role, descripcion, ubicacion, img ";
+
     public ArrayList<User> GetUsers() {
         ArrayList<User> Users = new ArrayList<>();
         GetMySQL(Users);
@@ -36,8 +40,10 @@ public class UserController {
 
     }
 
-    public void getUserById() {
-
+    public ArrayList<User> getUserById(String id) {
+        ArrayList<User> Users = new ArrayList<>();
+        GetByIdMySQL(Users, id);
+        return Users;
     }
 
     public User LoginUser(User user) {
@@ -76,9 +82,59 @@ public class UserController {
                 String id_institucional = rs.getString("id_institucional");
                 String id_ciudadania = rs.getString("id_ciudadania");
                 String role = rs.getString("role");
+                String desc = rs.getString("descripcion");
+                String ubic = rs.getString("ubicacion");
+                String img = rs.getString("img");
 
                 System.out.println(nombre);
-                User p1 = new User(nombre, email, password, id_institucional, id_ciudadania);
+                User p1 = new User(nombre, email, password, id_institucional, id_ciudadania, desc, ubic, img);
+                p1.setId_db(id_db);
+                p1.setRole(role);
+
+                arr.add(p1);
+            }
+
+        } catch (java.sql.SQLIntegrityConstraintViolationException e) {
+            System.err.println(e);
+        } catch (java.sql.SQLSyntaxErrorException e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        }
+
+    }
+    
+    protected void GetByIdMySQL(ArrayList<User> arr, String id) {
+        try {
+            String query = "SELECT * FROM usuarios where id = "+id;
+
+            // create the java statement
+            Statement st = DaoUtil.getConnection().createStatement();
+
+            // execute the query, and get a java resultset
+            ResultSet rs = st.executeQuery(query);
+
+            // iterate through the java resultset
+            while (rs.next()) {
+
+                int id_db = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                String id_institucional = rs.getString("id_institucional");
+                String id_ciudadania = rs.getString("id_ciudadania");
+                String role = rs.getString("role");
+                String desc = rs.getString("descripcion");
+                String ubic = rs.getString("ubicacion");
+                String img = rs.getString("img");
+
+                System.out.println(nombre);
+                User p1 = new User(nombre, email, password, id_institucional, id_ciudadania, desc, ubic, img);
                 p1.setId_db(id_db);
                 p1.setRole(role);
 
@@ -103,8 +159,6 @@ public class UserController {
     protected void postMySQL(User user) {
         try {
 
-            String TblParams = "nombre, password,"
-                    + " email, id_ciudadania, id_institucional, role ";
             ps = DaoUtil.getConnection()
                     .prepareStatement(
                             "call createUser("
@@ -118,6 +172,10 @@ public class UserController {
             ps.setString(4, user.getId_ciudadania());
             ps.setString(5, user.getId_institucional());
             ps.setString(6, user.getRole());
+            ps.setString(7, user.getDescripcion());
+            ps.setString(8, user.getUbicacion());
+            ps.setString(9, user.getImg());
+
             ps.executeUpdate();
 
         } catch (java.sql.SQLIntegrityConstraintViolationException e) {
@@ -137,7 +195,8 @@ public class UserController {
     protected void deleteMySQL(String id) throws Exception {
 
         try {
-            ps = DaoUtil.getConnection().prepareStatement("delete from usuarios where id=?");
+            ps = DaoUtil.getConnection()
+                    .prepareStatement("delete from usuarios where id=?");
             ps.setString(1, id);
             int i = ps.executeUpdate();
             if (i != 0) {
@@ -161,8 +220,7 @@ public class UserController {
     protected void updateMySQL(User newUser) {
 
         try {
-            String TblParams = "nombre, password,"
-                    + " email, id_ciudadania, id_institucional, role, id ";
+
             ps = DaoUtil.getConnection().prepareStatement(
                     "call editUser("
                     + DaoUtil.Fields_Query(TblParams)
@@ -176,6 +234,9 @@ public class UserController {
             ps.setString(5, newUser.getId_institucional());
             ps.setString(6, newUser.getRole());
             ps.setInt(7, newUser.getId_db());
+            ps.setString(8, newUser.getDescripcion());
+            ps.setString(9, newUser.getUbicacion());
+            ps.setString(10, newUser.getImg());
 
             int i = ps.executeUpdate();
             if (i != 0) {
@@ -200,8 +261,11 @@ public class UserController {
     protected User logingMySQL(User user) {
         User result_user = null;
         try {
-            ps = DaoUtil.getConnection().prepareStatement("Select * from usuarios where (password=? and email=?); ");
-            System.out.println(" " + user.getPassword() + "  " + user.getEmail());
+            ps = DaoUtil.getConnection()
+                    .prepareStatement("select * from usuarios where "
+                            + "(password=? and email=?); ");
+            System.out.println(" " + user.getPassword()
+                    + "  " + user.getEmail());
             ps.setString(1, user.getPassword());
             ps.setString(2, user.getEmail());
             ps.execute();
@@ -218,9 +282,14 @@ public class UserController {
                 String id_institucional = rs.getString("id_institucional");
                 String id_ciudadania = rs.getString("id_ciudadania");
                 String role = rs.getString("role");
+                String desc = rs.getString("descripcion");
+                String ubic = rs.getString("ubicacion");
+                String img = rs.getString("img");
 
                 System.out.println(nombre);
-                User p1 = new User(nombre, password, email, id_institucional, id_ciudadania);
+                User p1 = new User(nombre, password, email,
+                        id_institucional, id_ciudadania,
+                        desc, ubic, img);
                 p1.setId_db(id_db);
                 p1.setRole(role);
                 result_user = p1;
