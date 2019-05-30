@@ -74,7 +74,7 @@ function FormUser(props) {
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button is-success is-fullwidth" type="submit">{props.TextAction}</button>
+                    <button class="button is-info is-fullwidth" type="submit">{props.TextAction}</button>
                 </p>
             </div>
         </form>

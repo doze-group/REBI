@@ -4,9 +4,9 @@ function AdminUser(props) {
 
     const [Load, setLoad] = useState(false);
     const [Update, setUpdate] = useState(false);
-    const [Init, setInit] = useState(true)
+    const [Init, setInit] = useState(true);
     const [Users, setUsers] = useState([]);
-    const { UserTitle, Search, UserHead } = Messages();
+    const { UserTitle, Search, UserHead, DeleteTitle, DeleteUserMessage, CreateUserMessage, UpdateUserMessage } = Messages();
     const initUser = {
         id_db: null,
         password: '',
@@ -27,7 +27,7 @@ function AdminUser(props) {
             setUpdate(false);
         }
         setInit(false);
-    })
+    });
 
     function Form(TextAction, User, Action, Put) {
         const MySwal = sweetalert2ReactContent(Swal)
@@ -41,7 +41,7 @@ function AdminUser(props) {
 
     function Delete(User) {
         Swal.fire({
-            title: '¿Esta seguro de eliminar este usuario?',
+            title: DeleteTitle,
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -50,11 +50,11 @@ function AdminUser(props) {
         }).then((result) => {
             if (result.value) {
                 setLoad(false);
-                DeleteUser({ id: User.id_db }).then(user => {
-                    Swal.fire('Usuario Eliminado', '', 'success');
+                DeleteUser(User.id_db).then(user => {
+                    Swal.fire(DeleteUserMessage, '', 'success');
                     setUpdate(true);
                 }).catch(err => {
-                    Swal.fire('err', err.toString(), 'error');
+                    Swal.fire('Error', err.toString(), 'error');
                 })
             }
         });
@@ -63,20 +63,20 @@ function AdminUser(props) {
     function AddUserForm(User) {
         setLoad(false);
         AddUser(User).then(user => {
-            Swal.fire('Usuario Creado', '', 'success');
+            Swal.fire(CreateUserMessage, '', 'success');
             setUpdate(true);
         }).catch(err => {
-            Swal.fire('err', err.toString(), 'error');
+            Swal.fire('Error', err.toString(), 'error');
         });
     }
 
     function UpdateUserForm(User) {
         setLoad(false);
         UpdateUser(User).then(user => {
-            Swal.fire('Usuario Modificado', '', 'success');
+            Swal.fire(UpdateUserMessage, '', 'success');
             setUpdate(true);
         }).catch(err => {
-            Swal.fire('err', err.toString(), 'error');
+            Swal.fire('Error', err.toString(), 'error');
         });
     }
 
@@ -129,7 +129,7 @@ function AdminUser(props) {
                                                             <td class="has-text-centered">{Item.password}</td>
                                                             <td class="has-text-centered">
                                                                 <div class="buttons is-horizontal-center">
-                                                                    <a class="button is-primary is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
+                                                                    <a class="button is-info is-outlined" onClick={Form.bind(this, 'Actualizar', Item, UpdateUserForm, true)}>
                                                                         <span class="icon">
                                                                             <i class="fas fa-user-cog"></i>
                                                                         </span>
@@ -152,7 +152,7 @@ function AdminUser(props) {
                         </div>
                     </div>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-user-plus"></i></a>
+                <a class="button is-info float" onClick={Form.bind(this, 'Agregar', initUser, AddUserForm, false)}><i class="fa fa-user-plus"></i></a>
             </div>
         );
     } else {

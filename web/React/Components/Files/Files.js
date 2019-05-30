@@ -2,23 +2,44 @@ const { Component, useState } = React;
 
 function Files(props) {
 
-    const [Documents, setDocuments] = useState([{ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], }]);
-    const [Load, setLoad] = useState(true);
-    const { DocumentsTitle, Search, DocumentsHead } = Messages();
+    const [Documents, setDocuments] = useState([]);
+    const { DocumentsTitle, Search, DocumentsHead, DeleteDocumentMessage, UpdateDocumentMessage, CreateDocumentMessage } = Messages();
+    const [Load, setLoad] = useState(false);
+    const [Update, setUpdate] = useState(false);
+    const [Init, setInit] = useState(true);
+    const User = JSON.parse(localStorage.getItem('User'));
 
     function Form() {
         const MySwal = sweetalert2ReactContent(Swal)
         MySwal.fire({
             title: 'Agregar',
-            html: <FormFile Action={() => console.log('hola')} />,
+            html: <FormFile Action={UploadFile} />,
             showCloseButton: true,
             showConfirmButton: false
         });
-        var temp = [];
-        for (let index = 0; index < 100; index++) {
-            temp.push({ titulo: 'Alguno', descripcion: 'alguna', tags: ['a', 'a'], });
+    }
+
+    useEffect(() => {
+        if (Update || Init) {
+            getFilesId(User.id_db).then(Data => {
+                setDocuments(Data);
+                setLoad(true);
+            }).catch(err => { setLoad(true); });
+            setUpdate(false);
         }
-        setDocuments(temp);
+        setInit(false);
+    });
+
+
+    async function UploadFile(File) {
+        setLoad(false);
+        await Upload(File).then(file => {
+            Swal.fire(CreateDocumentMessage, '', 'success');
+            setUpdate(true);
+        }).catch(err => {
+            Swal.fire('Error', err.toString(), 'error');
+        });
+        setLoad(true);
     }
 
     if (Load) {
@@ -69,7 +90,7 @@ function Files(props) {
                                                                     {
                                                                         Item.tags.map((item, i) => {
                                                                             return (
-                                                                                <span class="tag is-success">
+                                                                                <span class="tag is-info">
                                                                                     {item}
                                                                                 </span>
                                                                             )
@@ -79,7 +100,7 @@ function Files(props) {
                                                             </td>
                                                             <td class="has-text-centered">
                                                                 <div class="buttons has-text-centered is-horizontal-center">
-                                                                    <a class="button is-primary is-outlined">
+                                                                    <a class="button is-info is-outlined">
                                                                         <span class="icon">
                                                                             <i class="fas fa-file-signature"></i>
                                                                         </span>
@@ -102,7 +123,7 @@ function Files(props) {
                         </div>
                     </div>
                 </div>
-                <a class="button is-primary float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
+                <a class="button is-info float" onClick={Form.bind(this)}><i class="fa fa-file-upload"></i></a>
             </div>
         );
     } else {

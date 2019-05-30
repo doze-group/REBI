@@ -32,6 +32,8 @@ and open the template in the editor.
   <script src="libraries/sweetalert2.all.min.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/sweetalert2-react-content@1.1.0/dist/sweetalert2-react-content.umd.min.js"></script>
+
+
   <!-- Components -->
   <script src="React/Components/Home/Home.js" type="text/babel"></script>
   <script src="React/Components/AdminUser/AdminUser.js" type="text/babel"></script>
@@ -46,7 +48,9 @@ and open the template in the editor.
   <script src="React/Components/ListMedia/ListMedia.js" type="text/babel"></script>
 
   <script src="React/Services/UserService.js" type="text/babel"></script>
+  <script src="React/Services/FilesService.js" type="text/babel"></script>
   <script src="React/Utils/UserUtil.js" type="text/babel"></script>
+  <script src="React/Utils/FilesUtil.js" type="text/babel"></script>
   <script src="React/Utils/MessagesUtil.js" type="text/babel"></script>
 
   <script src="React/App.js" type="text/babel"></script>

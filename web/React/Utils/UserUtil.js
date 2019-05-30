@@ -4,11 +4,13 @@ function http_get(url = '', headers = new Headers()) {
   return fetch(url, {
     method: 'GET',
     headers: headers,
-    mode: 'cors',
+    mode: 'no-cors',
     cache: 'default',
   })
     .then(res => res.json())
-    .catch(err => console.log(err));
+    .catch(function err(err) {
+      console.log(JSON.parse(err))
+    });
 }
 
 function http_post(url, body = {}) {
@@ -28,21 +30,21 @@ function http_post(url, body = {}) {
 }
 
 function http_delete(url, body = {}, headers = new Headers()) {
-    headers.append('Content-Type', 'application/json')    
-    return fetch(url, {
-      method: 'delete', // *GET, POST, PUT, DELETE, etc.
-      //mode: 'cors', // no-cors, cors, *same-origin     
-      headers: headers,
-      body: JSON.stringify(body), // body data type must match "Content-Type" header
-    }).then(response => response.json()); // parses JSON response into native Javascript objects
-  }
+  headers.append('Content-Type', 'application/json')
+  return fetch(url, {
+    method: 'delete', // *GET, POST, PUT, DELETE, etc.
+    //mode: 'cors', // no-cors, cors, *same-origin     
+    headers: headers,
+    body: JSON.stringify(body), // body data type must match "Content-Type" header
+  }).then(response => response.json()); // parses JSON response into native Javascript objects
+}
 
-  function http_put(url, body = {}, headers = new Headers()) {
-    headers.append('Content-Type', 'application/json')    
-    return fetch(url, {
-      method: 'put', // *GET, POST, PUT, DELETE, etc.
-      //mode: 'cors', // no-cors, cors, *same-origin     
-      headers: headers,
-      body: JSON.stringify(body), // body data type must match "Content-Type" header
-    }).then(response => response.json()); // parses JSON response into native Javascript objects
-  }
+function http_put(url, body = {}, headers = new Headers()) {
+  headers.append('Content-Type', 'application/json')
+  return fetch(url, {
+    method: 'put', // *GET, POST, PUT, DELETE, etc.
+    //mode: 'cors', // no-cors, cors, *same-origin     
+    headers: headers,
+    body: JSON.stringify(body), // body data type must match "Content-Type" header
+  }).then(response => response.json()); // parses JSON response into native Javascript objects
+}
