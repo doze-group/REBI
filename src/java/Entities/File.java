@@ -11,11 +11,11 @@ public class File {
     private String link_view;
     private String link_download;
     private String titulo;
-    private String decripcion;
+    private String descripcion;
     private String categoria;
     private String[] tags;
 
-    public File(int id_db, int id_db_user, int descargados, int favoritos, int visto, String nombre, String link_view, String link_download) {
+    public File(int id_db, int id_db_user, int descargados, int favoritos, int visto, String nombre, String link_view, String link_download, String titulo, String decripcion, String categoria, String[] tags) {
         this.id_db = id_db;
         this.id_db_user = id_db_user;
         this.descargados = descargados;
@@ -24,6 +24,10 @@ public class File {
         this.nombre = nombre;
         this.link_view = link_view;
         this.link_download = link_download;
+        this.titulo = titulo;
+        this.descripcion = decripcion;
+        this.categoria = categoria;
+        this.tags = tags;
     }
 
     public int getId_db() {
@@ -88,6 +92,38 @@ public class File {
 
     public void setLink_download(String link_download) {
         this.link_download = link_download;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String decripcion) {
+        this.descripcion = decripcion;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String[] getTags() {
+        return tags;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
     }
 
 }
