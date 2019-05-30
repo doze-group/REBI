@@ -4,7 +4,7 @@ function http_get(url = '', headers = new Headers()) {
   return fetch(url, {
     method: 'GET',
     headers: headers,
-    mode: 'no-cors',
+    mode: 'cors',
     cache: 'default',
   })
     .then(res => res.json())

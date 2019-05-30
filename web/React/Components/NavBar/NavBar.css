@@ -17,6 +17,10 @@
     background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
     /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4e4376, #2b5876);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    border-color: white;
 }
 
 .is-transparent {
